@@ -17,7 +17,7 @@ class CottiCoffeeApp extends StatelessWidget {
       designSize: const Size(375, 812),
       minTextAdapt: true,
       builder: () => AnnotatedRegion<SystemUiOverlayStyle>(
-        value: SystemUiOverlayStyle.dark,
+        value: SystemUiOverlayStyle.light,
         child: MaterialApp(
             localizationsDelegates: const [
               GlobalMaterialLocalizations.delegate,

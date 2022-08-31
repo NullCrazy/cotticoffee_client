@@ -1,4 +1,7 @@
+import 'package:cotticommon/router/fluro_navigator.dart';
 import 'package:flutter/material.dart';
+
+import '../../routers/home_router.dart';
 
 /// Description:
 /// Author: xingguo.lei@abite.com
@@ -14,6 +17,9 @@ class _SplashPageState extends State<SplashPage> {
   @override
   void initState() {
     super.initState();
+    WidgetsBinding.instance?.addPostFrameCallback((timeStamp) {
+      NavigatorUtils.push(context, HomeRouter.homePage);
+    });
   }
 
   @override

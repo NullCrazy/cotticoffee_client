@@ -1,3 +1,4 @@
+import 'package:cotticoffee_client/widget/custom_page_widget.dart';
 import 'package:flutter/material.dart';
 
 /// Description:
@@ -13,6 +14,9 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return CustomPageWidget(
+      title: 'home',
+      child: Container(),
+    );
   }
 }

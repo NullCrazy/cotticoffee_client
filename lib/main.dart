@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:cotticoffee_client/routers/main_router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -13,5 +14,6 @@ void main() {
     );
     SystemChrome.setSystemUIOverlayStyle(systemUiOverlayStyle);
   }
+  MainRouter.init();
   runApp(const CottiCoffeeApp());
 }
