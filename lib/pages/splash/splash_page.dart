@@ -1,7 +1,7 @@
-import 'package:cotticommon/router/fluro_navigator.dart';
+import 'package:cotticoffee_client/pages/tabs/tab_page.dart';
 import 'package:flutter/material.dart';
 
-import '../../routers/home_router.dart';
+import '../privacy/privacy_mixin.dart';
 
 /// Description:
 /// Author: xingguo.lei@abite.com
@@ -13,12 +13,17 @@ class SplashPage extends StatefulWidget {
   State<SplashPage> createState() => _SplashPageState();
 }
 
-class _SplashPageState extends State<SplashPage> {
+class _SplashPageState extends State<SplashPage> with PrivacyMixin {
   @override
   void initState() {
     super.initState();
     WidgetsBinding.instance?.addPostFrameCallback((timeStamp) {
-      NavigatorUtils.push(context, HomeRouter.homePage);
+      checkPrivacyAgreement(context, (result) async {
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (context) => const TabPage()),
+        );
+      });
     });
   }
 
