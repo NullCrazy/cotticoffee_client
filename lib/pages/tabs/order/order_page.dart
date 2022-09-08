@@ -17,7 +17,11 @@ class _OrderPageState extends State<OrderPage> {
     return CustomPageWidget(
       title: '订单列表',
       automaticallyImplyLeading: false,
-      child: Text('订单'),
+      child: ListView.builder(itemBuilder: (conext, index) {
+        return ListTile(
+          title: Container(color: Colors.red, child: Text('test')),
+        );
+      }),
     );
   }
 }

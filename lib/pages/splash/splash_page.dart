@@ -1,7 +1,9 @@
+import 'dart:io';
+
 import 'package:cotticoffee_client/pages/tabs/tab_page.dart';
 import 'package:flutter/material.dart';
 
-import '../privacy/privacy_mixin.dart';
+import 'privacy/privacy_mixin.dart';
 
 /// Description:
 /// Author: xingguo.lei@abite.com
@@ -19,10 +21,14 @@ class _SplashPageState extends State<SplashPage> with PrivacyMixin {
     super.initState();
     WidgetsBinding.instance?.addPostFrameCallback((timeStamp) {
       checkPrivacyAgreement(context, (result) async {
-        Navigator.pushReplacement(
-          context,
-          MaterialPageRoute(builder: (context) => const TabPage()),
-        );
+        if (result) {
+          Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(builder: (context) => const TabPage()),
+          );
+        } else {
+          exit(0);
+        }
       });
     });
   }

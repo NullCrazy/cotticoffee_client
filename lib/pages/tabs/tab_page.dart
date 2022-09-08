@@ -2,7 +2,6 @@ import 'package:cotticoffee_client/pages/tabs/home/home_page.dart';
 import 'package:cotticoffee_client/pages/tabs/menu/menu_page.dart';
 import 'package:cotticoffee_client/pages/tabs/mine/mine_page.dart';
 import 'package:cotticoffee_client/pages/tabs/order/order_page.dart';
-import 'package:cotticoffee_client/widget/my_bottom_app_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -28,32 +27,21 @@ class _TabPageState extends State<TabPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBody: true,
       floatingActionButton: _buildActionButton(),
-      floatingActionButtonLocation: FloatingActionButtonLocation.miniCenterFloat,
+      floatingActionButtonLocation: FloatingActionButtonLocation.miniCenterDocked,
       body: _buildBody(),
+      bottomNavigationBar: _buildBottomAppBar(),
     );
   }
 
   Widget _buildBody() {
     return WillPopScope(
       onWillPop: _back,
-      child: SafeArea(
-        top: false,
-        child: Stack(
-          children: [
-            PageView(
-              physics: const NeverScrollableScrollPhysics(),
-              controller: _controller,
-              children: _pages,
-            ),
-            Positioned(
-              left: 0,
-              bottom: 0,
-              right: 0,
-              child: _buildBottomAppBar(),
-            ),
-          ],
-        ),
+      child: PageView(
+        physics: const NeverScrollableScrollPhysics(),
+        controller: _controller,
+        children: _pages,
       ),
     );
   }
@@ -70,17 +58,20 @@ class _TabPageState extends State<TabPage> {
   }
 
   Widget _buildBottomAppBar() {
-    return MyBottomAppBar(
+    return BottomAppBar(
       notchMargin: 4.w,
       shape: const CircularNotchedRectangle(),
-      child: Row(
-        children: [
-          _buildItem('首页', 'assets/images/tab_bar/icon_home.svg', 0),
-          _buildItem('点餐', 'assets/images/tab_bar/icon_menu.svg', 1),
-          const Expanded(child: SizedBox()),
-          _buildItem('订单', 'assets/images/tab_bar/icon_order.svg', 2),
-          _buildItem('我的', 'assets/images/tab_bar/icon_mine.svg', 3),
-        ],
+      child: SizedBox(
+        height: 58.h,
+        child: Row(
+          children: [
+            _buildItem('首页', 'assets/images/tab_bar/icon_home.svg', 0),
+            _buildItem('点餐', 'assets/images/tab_bar/icon_menu.svg', 1),
+            const Expanded(child: SizedBox()),
+            _buildItem('订单', 'assets/images/tab_bar/icon_order.svg', 2),
+            _buildItem('我的', 'assets/images/tab_bar/icon_mine.svg', 3),
+          ],
+        ),
       ),
     );
   }
@@ -127,5 +118,12 @@ class _TabPageState extends State<TabPage> {
       await SystemChannels.platform.invokeMethod('SystemNavigator.pop');
       return false;
     }
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    _pages.clear();
+    _controller.dispose();
   }
 }
