@@ -38,6 +38,7 @@ class _TabPageState extends State<TabPage> {
     return WillPopScope(
       onWillPop: _back,
       child: SafeArea(
+        top: false,
         child: Stack(
           children: [
             PageView(

@@ -21,6 +21,16 @@ if (flutterVersionName == null) {
     flutterVersionName = '1.0'
 }
 
+def dartDefines = []
+if (project.hasProperty('dart-defines')) {
+    dartDefines = project.property('dart-defines')
+            .split(',')
+            .collectEntries { entry ->
+                def pair = new String(entry.decodeBase64(), 'UTF-8').split('=')
+                [(pair.first()): pair.last()]
+            }
+}
+
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
@@ -42,19 +52,54 @@ android {
     }
 
     defaultConfig {
-        // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
         applicationId "com.cotticoffee.client.cotticoffee_client"
-        minSdkVersion flutter.minSdkVersion
-        targetSdkVersion flutter.targetSdkVersion
+        minSdkVersion 21
+        targetSdkVersion 29
+        multiDexEnabled true
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
+        setProperty("archivesBaseName", "cotti-client-v${flutterVersionName}-$dartDefines.ENV")
+    }
+
+    signingConfigs {
+        release {
+            keyAlias KEY_ALIAS
+            keyPassword KEY_PASSWORD
+            storeFile file(STORE_PATH)
+            storePassword STORE_PASSWORD
+        }
+        debug {
+            keyAlias KEY_ALIAS
+            keyPassword KEY_PASSWORD
+            storeFile file(STORE_PATH)
+            storePassword STORE_PASSWORD
+        }
     }
 
     buildTypes {
-        release {
-            // TODO: Add your own signing config for the release build.
-            // Signing with the debug keys for now, so `flutter run --release` works.
+        debug {
+            ndk {
+                abiFilters "armeabi-v7a", "arm64-v8a", "x86"
+            }
             signingConfig signingConfigs.debug
+            minifyEnabled false
+            debuggable true
+        }
+        release {
+            ndk {
+                abiFilters "armeabi-v7a", "arm64-v8a"
+            }
+            signingConfig signingConfigs.release
+            debuggable false
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    applicationVariants.all { variant ->
+        if ('prod' == dartDefines.ENV) {
+            buildConfigField 'String', 'SA_SERVER_URL', "\"https://access.abite.com/sa?project=abite_workshop\""
+        } else {
+            buildConfigField 'String', 'SA_SERVER_URL', "\"https://access.abite.com/sa?project=abite_workshop_test\""
         }
     }
 }
@@ -64,5 +109,7 @@ flutter {
 }
 
 dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'androidx.multidex:multidex:2.0.1'
 }
