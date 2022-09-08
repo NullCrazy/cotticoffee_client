@@ -30,8 +30,8 @@ class _TabPageState extends State<TabPage> {
       extendBody: true,
       floatingActionButton: _buildActionButton(),
       floatingActionButtonLocation: FloatingActionButtonLocation.miniCenterDocked,
-      body: _buildBody(),
       bottomNavigationBar: _buildBottomAppBar(),
+      body: _buildBody(),
     );
   }
 
@@ -61,17 +61,14 @@ class _TabPageState extends State<TabPage> {
     return BottomAppBar(
       notchMargin: 4.w,
       shape: const CircularNotchedRectangle(),
-      child: SizedBox(
-        height: 58.h,
-        child: Row(
-          children: [
-            _buildItem('首页', 'assets/images/tab_bar/icon_home.svg', 0),
-            _buildItem('点餐', 'assets/images/tab_bar/icon_menu.svg', 1),
-            const Expanded(child: SizedBox()),
-            _buildItem('订单', 'assets/images/tab_bar/icon_order.svg', 2),
-            _buildItem('我的', 'assets/images/tab_bar/icon_mine.svg', 3),
-          ],
-        ),
+      child: Row(
+        children: [
+          _buildItem('首页', 'assets/images/tab_bar/icon_home.svg', 0),
+          _buildItem('点餐', 'assets/images/tab_bar/icon_menu.svg', 1),
+          const Expanded(child: SizedBox()),
+          _buildItem('订单', 'assets/images/tab_bar/icon_order.svg', 2),
+          _buildItem('我的', 'assets/images/tab_bar/icon_mine.svg', 3),
+        ],
       ),
     );
   }
@@ -87,6 +84,7 @@ class _TabPageState extends State<TabPage> {
           });
         },
         child: Column(
+          mainAxisSize: MainAxisSize.min,
           children: [
             SizedBox(height: 6.h),
             SvgPicture.asset(
@@ -113,11 +111,10 @@ class _TabPageState extends State<TabPage> {
     final int currTime = DateTime.now().millisecondsSinceEpoch;
     if (currTime - dateTime > 1000) {
       dateTime = currTime;
-      return false;
     } else {
       await SystemChannels.platform.invokeMethod('SystemNavigator.pop');
-      return false;
     }
+    return false;
   }
 
   @override
