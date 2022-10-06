@@ -1,3 +1,4 @@
+import 'package:cotticoffee_client/global/style.dart';
 import 'package:cotticoffee_client/pages/tabs/home/home_page.dart';
 import 'package:cotticoffee_client/pages/tabs/menu/menu_page.dart';
 import 'package:cotticoffee_client/pages/tabs/mine/mine_page.dart';
@@ -95,7 +96,7 @@ class _TabPageState extends State<TabPage> {
             Text(
               text,
               style: TextStyle(
-                color: index == _selectIndex ? const Color(0xFFD1775C) : const Color(0xFF444A58),
+                color: index == _selectIndex ? primeColor : const Color(0xFF444A58),
                 fontSize: 12.sp,
               ),
             ),

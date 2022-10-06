@@ -1,3 +1,4 @@
+import 'package:cotticoffee_client/global/style.dart';
 import 'package:cotticommon/router/fluro_navigator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -68,11 +69,7 @@ class _CustomPageWidgetState extends State<CustomPageWidget> {
     return AppBar(
       title: Text(
         widget.title ?? '',
-        style: TextStyle(
-          color: const Color(0xFF3A3B3C),
-          fontSize: 18.sp,
-          fontWeight: FontWeight.bold,
-        ),
+        style: titleTextStyle,
       ),
       toolbarHeight: 42.h,
       centerTitle: true,

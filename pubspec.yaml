@@ -22,6 +22,8 @@ dependencies:
   cached_network_image: ^3.2.0
   #webView
   webview_flutter: ^3.0.0
+  #粘性header
+  sticky_headers: ^0.2.0
 
   cotticommon:
     git:

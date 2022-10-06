@@ -8,7 +8,7 @@ import 'package:flutter_svg/svg.dart';
 /// Description: 图片组件，支持默认占位，圆角，不同质量的压缩
 /// Author: yapeng.zhu@abite.com
 /// Date: 2021/12/4
-class ABiteCacheImageWidget extends StatelessWidget {
+class ABiteImageWidget extends StatelessWidget {
   ///网络图片地址，必传参数
   final String url;
 
@@ -24,8 +24,8 @@ class ABiteCacheImageWidget extends StatelessWidget {
   ///图片显示模式
   final BoxFit? fit;
 
-  ///调整图片大小
-  final String? resize;
+  ///调整图片大小， resize = "w_500"
+  String? resize;
 
   ///调整图片质量
   final String? quality;
@@ -48,14 +48,11 @@ class ABiteCacheImageWidget extends StatelessWidget {
   ///是否需要压缩图片
   final bool isCompress;
 
-  ///只进行质量压缩,默认不开启
-  final bool onlyQuality;
-
   final Duration fadeInDuration;
 
   final Duration fadeOutDuration;
 
-  const ABiteCacheImageWidget({
+  ABiteImageWidget({
     Key? key,
     required this.url,
     this.imgW,
@@ -63,13 +60,11 @@ class ABiteCacheImageWidget extends StatelessWidget {
     this.defImagePath,
     this.fit,
     this.borderRadius,
-    this.resize = "w_500", //默认宽度
     this.quality = "q_50", //默认压缩50%
     this.format = "webp", //默认图片格式为webp
     this.fadeInDuration = const Duration(milliseconds: 500),
     this.fadeOutDuration = const Duration(milliseconds: 1000),
     this.isCompress = true,
-    this.onlyQuality = false,
   }) : super(key: key);
 
   ///占位图组件
@@ -114,10 +109,13 @@ class ABiteCacheImageWidget extends StatelessWidget {
   String _compress(String url) {
     if (!isCompress) {
       return url;
-    } else if (onlyQuality) {
+    } else if (resize != null) {
+      ///判断是否需要长宽压缩
+      return "$url?x-image-process=image/resize,$resize,limit_0/quality,$quality/format,$format";
+    } else {
+      ///默认使用质量压缩
       return "$url?x-image-process=image/quality,$quality/format,$format";
     }
-    return "$url?x-image-process=image/resize,$resize,limit_0/quality,$quality/format,$format";
   }
 
   Widget _bg(BuildContext context, String url) {
