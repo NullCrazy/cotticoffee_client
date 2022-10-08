@@ -1,7 +1,8 @@
 import 'package:cotticoffee_client/network/cotti_net_work_config.dart';
+import 'package:cotticoffee_client/network/interceptor/login_header_interceptor.dart';
 import 'package:cotticommon/network/client/cotti_http_client.dart';
 import 'package:cotticommon/network/interface/network_config.dart';
-import 'package:dio/src/dio_mixin.dart';
+import 'package:dio/dio.dart';
 
 /// Description:
 /// Author: xingguo.lei@abite.com
@@ -17,7 +18,7 @@ class CottiNetWork extends CottiHttpClient {
   }
 
   @override
-  List<Interceptor> get interceptors => [];
+  List<Interceptor> get interceptors => [LoginHeaderInterceptor()];
 
   @override
   NetWorkConfig get networkConfig => CottiNetWorkConfig();

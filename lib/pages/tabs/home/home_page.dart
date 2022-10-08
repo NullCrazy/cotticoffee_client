@@ -1,3 +1,4 @@
+import 'package:abitelogin/abitelogin.dart';
 import 'package:cotticoffee_client/network/cotti_net_work.dart';
 import 'package:cotticoffee_client/widget/custom_page_widget.dart';
 import 'package:flutter/material.dart';
@@ -19,8 +20,7 @@ class _HomePageState extends State<HomePage> {
       showAppBar: false,
       child: InkWell(
         onTap: () async {
-          CottiNetWork()
-              .get('/cotti-capi/customer/position/lists', queryParameters: {'code': 'coffee-test'});
+         LoginUtils.login(context);
         },
         child: Container(
           color: Colors.red,

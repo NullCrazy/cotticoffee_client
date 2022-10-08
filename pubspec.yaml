@@ -27,8 +27,12 @@ dependencies:
 
   cotticommon:
     git:
-      url: https://github.com/NullCrazy/cotticommon.git
+      url: https://flutter-readonly:flutter-readonly@git.yummy.tech/frontend/cotticommon.git
       ref: master
+  abitelogin:
+    git:
+      url: https://flutter-readonly:flutter-readonly@git.yummy.tech/frontend/abitelogin.git
+      ref: cotti_login
 
 dev_dependencies:
   flutter_test:

@@ -90,7 +90,7 @@ class _TabPageState extends State<TabPage> {
             SizedBox(height: 6.h),
             SvgPicture.asset(
               iconName,
-              color: index == _selectIndex ? const Color(0xFFD1775C) : const Color(0xFF444A58),
+              color: index == _selectIndex ? primeColor : const Color(0xFF444A58),
             ),
             SizedBox(height: 3.h),
             Text(

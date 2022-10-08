@@ -22,4 +22,7 @@ class CottiNetWorkConfig extends NetWorkConfig {
 
   @override
   bool get logger => Env.envConfig.isDebug;
+
+  @override
+  String? get prefix => '/cotti-capi';
 }

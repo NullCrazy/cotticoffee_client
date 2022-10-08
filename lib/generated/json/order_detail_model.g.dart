@@ -1,5 +1,7 @@
 import 'package:cotticoffee_client/generated/json/base/json_convert_content.dart';
 import 'package:cotticoffee_client/pages/tabs/order/model/order_detail_model.dart';
+import 'package:cotticoffee_client/pages/tabs/order/model/order_express.dart';
+
 
 OrderDetailModel $OrderDetailModelFromJson(Map<String, dynamic> json) {
 	final OrderDetailModel orderDetailModel = OrderDetailModel();

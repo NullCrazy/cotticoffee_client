@@ -6,7 +6,7 @@ import 'env_config.dart';
 class Env {
   /// flutter run --dart-define=ENV=debug,test,prod
   /// 多渠道打包
-  static const env = String.fromEnvironment('ENV', defaultValue: EnvConfig.debug);
+  static const env = String.fromEnvironment('ENV', defaultValue: EnvConfig.test);
 
   static EnvConfig get envConfig => getEnvConfig();
 

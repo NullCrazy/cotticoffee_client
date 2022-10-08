@@ -30,5 +30,33 @@
         <meta-data
             android:name="flutterEmbedding"
             android:value="2" />
+
+       <activity
+           android:name="com.chuanglan.shanyan_sdk.view.CmccLoginActivity"
+           android:configChanges="keyboardHidden|orientation|screenSize"
+           android:launchMode="singleTop"
+           android:screenOrientation="behind"
+           android:theme="@style/MyTheme" />
+
+       <activity-alias
+           android:name="com.cmic.sso.sdk.view.LoginAuthActivity"
+           android:configChanges="keyboardHidden|orientation|screenSize"
+           android:launchMode="singleTop"
+           android:screenOrientation="behind"
+           android:targetActivity="com.chuanglan.shanyan_sdk.view.CmccLoginActivity"
+           android:theme="@style/MyTheme" />
+
+       <activity
+           android:name="com.chuanglan.shanyan_sdk.view.ShanYanOneKeyActivity"
+           android:configChanges="keyboardHidden|orientation|screenSize"
+           android:launchMode="singleTop"
+           android:screenOrientation="behind"
+           android:theme="@style/MyTheme" />
+       <activity
+           android:name="com.chuanglan.shanyan_sdk.view.CTCCPrivacyProtocolActivity"
+           android:configChanges="keyboardHidden|orientation|screenSize"
+           android:launchMode="singleTop"
+           android:screenOrientation="behind"
+           android:theme="@style/MyTheme" />
     </application>
 </manifest>

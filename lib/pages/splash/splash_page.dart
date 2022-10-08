@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:cotticoffee_client/pages/splash/init_platform.dart';
 import 'package:cotticoffee_client/pages/tabs/tab_page.dart';
 import 'package:flutter/material.dart';
 
@@ -22,6 +23,7 @@ class _SplashPageState extends State<SplashPage> with PrivacyMixin {
     WidgetsBinding.instance?.addPostFrameCallback((timeStamp) {
       checkPrivacyAgreement(context, (result) async {
         if (result) {
+          await InitPlatform.initPlatform(context);
           Navigator.pushReplacement(
             context,
             MaterialPageRoute(builder: (context) => const TabPage()),

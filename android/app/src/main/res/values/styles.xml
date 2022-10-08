@@ -15,4 +15,20 @@
     <style name="NormalTheme" parent="@android:style/Theme.Light.NoTitleBar">
         <item name="android:windowBackground">?android:colorBackground</item>
     </style>
+    <style name="MyTheme" parent="@android:style/Theme.Holo.Light.NoActionBar">
+        <!--没有标题-->
+        <item name="android:windowNoTitle">true</item>
+        <!--背景透明-->
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <!--dialog的整个屏幕的背景是否有遮障层-->
+        <item name="android:backgroundDimEnabled">true</item>
+        <!--必须制定该属性不然动画不起作用-->
+        <!--        <item name="android:windowActivityTransitions">true</item>-->
+
+        <!--        &lt;!&ndash;activity进入动画&ndash;&gt;-->
+        <!--        <item name="android:windowEnterTransition">@transition/animation_transition_push</item>-->
+        <!--        &lt;!&ndash;activity退出动画&ndash;&gt;-->
+        <!--        <item name="android:windowExitTransition">@transition/animation_transition_pop</item>-->
+    </style>
 </resources>
