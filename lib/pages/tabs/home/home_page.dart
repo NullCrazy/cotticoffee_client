@@ -20,7 +20,8 @@ class _HomePageState extends State<HomePage> {
       showAppBar: false,
       child: InkWell(
         onTap: () async {
-         LoginUtils.login(context);
+          CottiNetWork().post('/cotti-capi/order/getOrderList',
+              data: {"pageNo": 1, "pageSize": 20, "appTabStatus": 1});
         },
         child: Container(
           color: Colors.red,

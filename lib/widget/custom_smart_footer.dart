@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lottie/lottie.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 /// Description:
 /// Author: xingguo.lei@abite.com
@@ -16,17 +17,17 @@ class CustomSmartFooter extends StatelessWidget {
       if (mode == LoadStatus.idle) {
         body = const Text("上滑加载更多");
       } else if (mode == LoadStatus.loading) {
-        body = Lottie.asset(
-          'assets/lottie/loading.json',
+        body = Lottie.network(
+          'https://cdn-product-prod.yummy.tech/wechat/cotti/images/refresh.json',
           width: 30.w,
           height: 30.w,
         );
       } else if (mode == LoadStatus.failed) {
         body = const Text("加载错误");
       } else if (mode == LoadStatus.noMore) {
-        body = const Text(
-          "已经到底了~",
-          style: TextStyle(color: Color(0xFFCFCFCf)),
+        body = Text(
+          "— 到底啦 —",
+          style: TextStyle(color: const Color(0xFFCFCFCf), fontSize: 13.sp),
         );
       } else {
         body = const Text("");
@@ -34,10 +35,7 @@ class CustomSmartFooter extends StatelessWidget {
       return Container(
         alignment: Alignment.center,
         height: 55.h,
-        child: Padding(
-          padding: EdgeInsets.only(bottom: 12.h),
-          child: body,
-        ),
+        child: body,
       );
     });
   }

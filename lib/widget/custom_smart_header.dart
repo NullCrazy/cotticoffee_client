@@ -13,10 +13,10 @@ class CustomSmartHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     return CustomHeader(builder: (context, mode) {
       return Center(
-        child: Lottie.asset(
-          'assets/lottie/loading.json',
-          width: 30.w,
-          height: 30.w,
+        child: Lottie.network(
+          'https://cdn-product-prod.yummy.tech/wechat/cotti/images/refresh.json',
+          width: 42.w,
+          height: 42.w,
         ),
       );
     });

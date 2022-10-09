@@ -28,9 +28,9 @@ class _TabPageState extends State<TabPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      extendBody: true,
-      floatingActionButton: _buildActionButton(),
-      floatingActionButtonLocation: FloatingActionButtonLocation.miniCenterDocked,
+      extendBody: false,
+      // floatingActionButton: _buildActionButton(),
+      // floatingActionButtonLocation: FloatingActionButtonLocation.miniCenterDocked,
       bottomNavigationBar: _buildBottomAppBar(),
       body: _buildBody(),
     );
@@ -66,7 +66,7 @@ class _TabPageState extends State<TabPage> {
         children: [
           _buildItem('首页', 'assets/images/tab_bar/icon_home.svg', 0),
           _buildItem('点餐', 'assets/images/tab_bar/icon_menu.svg', 1),
-          const Expanded(child: SizedBox()),
+          // const Expanded(child: SizedBox()),
           _buildItem('订单', 'assets/images/tab_bar/icon_order.svg', 2),
           _buildItem('我的', 'assets/images/tab_bar/icon_mine.svg', 3),
         ],

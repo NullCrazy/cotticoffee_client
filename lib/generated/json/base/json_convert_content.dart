@@ -10,6 +10,10 @@ import 'package:cotticoffee_client/pages/tabs/order/model/order_express.dart';
 import 'package:cotticoffee_client/pages/tabs/order/model/order_model.dart';
 import 'package:cotticoffee_client/pages/tabs/order/model/order_refund_model.dart';
 import 'package:cotticoffee_client/pages/tabs/order/model/order_url_model.dart';
+import 'package:cotticoffee_client/service/pay/model/alipay_info_model_model.dart';
+import 'package:cotticoffee_client/service/pay/model/alipay_info_model_pay_info.dart';
+import 'package:cotticoffee_client/service/pay/model/pay_type_list_model.dart';
+import 'package:cotticoffee_client/service/pay/model/wechat_pay_info_model.dart';
 
 JsonConvert jsonConvert = JsonConvert();
 typedef JsonConvertFunction<T> = T Function(Map<String, dynamic> json);
@@ -34,6 +38,12 @@ class JsonConvert {
 		(OrderRefundProductList).toString(): OrderRefundProductList.fromJson,
 		(OrderUrlModel).toString(): OrderUrlModel.fromJson,
 		(OrderUrlData).toString(): OrderUrlData.fromJson,
+		(AlipayInfoModelModel).toString(): AlipayInfoModelModel.fromJson,
+		(AlipayInfoModelPayInfo).toString(): AlipayInfoModelPayInfo.fromJson,
+		(PayTypeListModel).toString(): PayTypeListModel.fromJson,
+		(PayTypeModel).toString(): PayTypeModel.fromJson,
+		(WechatPayInfoModel).toString(): WechatPayInfoModel.fromJson,
+		(WechatPayInfoPayInfo).toString(): WechatPayInfoPayInfo.fromJson,
 	};
 
   T? convert<T>(dynamic value) {
@@ -162,6 +172,24 @@ class JsonConvert {
 		}
 		if(<OrderUrlData>[] is M){
 			return data.map<OrderUrlData>((Map<String, dynamic> e) => OrderUrlData.fromJson(e)).toList() as M;
+		}
+		if(<AlipayInfoModelModel>[] is M){
+			return data.map<AlipayInfoModelModel>((Map<String, dynamic> e) => AlipayInfoModelModel.fromJson(e)).toList() as M;
+		}
+		if(<AlipayInfoModelPayInfo>[] is M){
+			return data.map<AlipayInfoModelPayInfo>((Map<String, dynamic> e) => AlipayInfoModelPayInfo.fromJson(e)).toList() as M;
+		}
+		if(<PayTypeListModel>[] is M){
+			return data.map<PayTypeListModel>((Map<String, dynamic> e) => PayTypeListModel.fromJson(e)).toList() as M;
+		}
+		if(<PayTypeModel>[] is M){
+			return data.map<PayTypeModel>((Map<String, dynamic> e) => PayTypeModel.fromJson(e)).toList() as M;
+		}
+		if(<WechatPayInfoModel>[] is M){
+			return data.map<WechatPayInfoModel>((Map<String, dynamic> e) => WechatPayInfoModel.fromJson(e)).toList() as M;
+		}
+		if(<WechatPayInfoPayInfo>[] is M){
+			return data.map<WechatPayInfoPayInfo>((Map<String, dynamic> e) => WechatPayInfoPayInfo.fromJson(e)).toList() as M;
 		}
 
 		debugPrint("${M.toString()} not found");

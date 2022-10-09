@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-const Color primeColor = Color(0xFFFC4C02);
+const Color primeColor = Color(0xFFE45D50);
 const Color primeColorAccent = Color(0x77A2C14D);
 const Color textBlack = Color(0xFF3A3B3C);
 const Color textGray = Color(0xFF979797);

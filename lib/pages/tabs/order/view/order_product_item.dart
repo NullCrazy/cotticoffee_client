@@ -22,14 +22,15 @@ class _OrderProductItemState extends State<OrderProductItem> {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         SizedBox(
-          width: 60.w,
-          height: 60.h,
+          width: 64.w,
+          height: 64.h,
           child: Stack(
             children: [
               ABiteImageWidget(
                 url: widget.productModel.picPath ?? '',
-                imgW: 60.w,
-                imgH: 60.h,
+                imgW: 64.w,
+                imgH: 64.h,
+                borderRadius: BorderRadius.all(Radius.circular(4.r)),
                 fit: BoxFit.fill,
               ),
               Align(alignment: Alignment.bottomRight, child: _buildCount()),
@@ -37,14 +38,14 @@ class _OrderProductItemState extends State<OrderProductItem> {
           ),
         ),
         SizedBox(
-          width: 60.w,
+          width: 64.w,
           child: Text(
             widget.productModel.title ?? '',
             maxLines: 1,
             textAlign: TextAlign.center,
             overflow: TextOverflow.ellipsis,
             style: TextStyle(
-              color: textGray,
+              color: textBlack,
               fontSize: 10.sp,
             ),
           ),
@@ -57,10 +58,9 @@ class _OrderProductItemState extends State<OrderProductItem> {
     return Container(
       padding: EdgeInsets.only(left: 6.w, right: 4.w, top: 2.h, bottom: 1.h),
       decoration: BoxDecoration(
-        color: Colors.black.withOpacity(0.6),
+        color: textBlack.withOpacity(0.4),
         borderRadius: BorderRadius.only(
-          topLeft: Radius.circular(8.r),
-          bottomRight: Radius.circular(8.r),
+          bottomRight: Radius.circular(4.r),
         ),
       ),
       child: Text(

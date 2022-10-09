@@ -12,6 +12,7 @@ dependencies:
   flutter_localizations:
     sdk: flutter
   cupertino_icons: ^1.0.2
+  decimal: ^2.0.0
   #svg图片加载
   flutter_svg: ^0.23.0+1
   #下拉刷新
@@ -24,6 +25,10 @@ dependencies:
   webview_flutter: ^3.0.0
   #粘性header
   sticky_headers: ^0.2.0
+  #微信
+  fluwx: ^3.6.1+4
+  #支付宝
+  tobias: ^2.3.0
 
   cotticommon:
     git:
