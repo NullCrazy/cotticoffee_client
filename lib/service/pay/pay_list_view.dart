@@ -1,4 +1,4 @@
-import 'package:cotticoffee_client/widget/abite_image_widget.dart';
+import 'package:cotticoffee_client/widget/cotti_image_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -61,7 +61,7 @@ class _PayListWidgetState extends State<PayListWidget> {
               children: [
                 Row(
                   children: [
-                    ABiteImageWidget(
+                    CottiImageWidget(
                       url: payType.showIcon ?? '',
                       imgW: 18.w,
                       imgH: 18.h,

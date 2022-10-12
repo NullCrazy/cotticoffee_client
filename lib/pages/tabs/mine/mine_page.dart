@@ -1,4 +1,13 @@
+import 'package:cotticoffee_client/pages/tabs/mine/bloc/mine_bloc.dart';
+import 'package:cotticoffee_client/pages/tabs/mine/views/function_list.dart';
+import 'package:cotticoffee_client/pages/tabs/mine/views/user_info_widget.dart';
+import 'package:cotticoffee_client/widget/custom_page_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+import 'bloc/mine_event.dart';
+import 'views/coupon_widget.dart';
 
 /// Description:
 /// Author: xingguo.lei@abite.com
@@ -11,24 +20,48 @@ class MinePage extends StatefulWidget {
 }
 
 class _MinePageState extends State<MinePage> with AutomaticKeepAliveClientMixin {
+  final MineBloc _bloc = MineBloc();
+
   @override
   void initState() {
     super.initState();
-    print('_MinePageState');
+    _bloc.add(GetUserInfoEvent());
   }
+
+  @override
+  bool get wantKeepAlive => true;
+
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Text('我的'),
+    return BlocProvider(
+      create: (context) => _bloc,
+      child: CustomPageWidget(
+        showAppBar: false,
+        child: Stack(
+          children: [
+            Image.asset('assets/images/mine/bg_mine_head.png'),
+            Image.asset('assets/images/mine/bg_mine_mask.png'),
+            ListView(
+              padding: EdgeInsets.symmetric(horizontal: 16.w),
+              children: contents(),
+            ),
+          ],
+        ),
+      ),
     );
+  }
+
+  List<Widget> contents() {
+    return [
+      const UserInfoWidget(),
+      const CouponWidget(),
+      const FunctionList(),
+    ];
   }
 
   @override
   void dispose() {
     super.dispose();
-    print('_MinePageState dispose');
+    _bloc.close();
   }
-
-  @override
-  bool get wantKeepAlive => true;
 }

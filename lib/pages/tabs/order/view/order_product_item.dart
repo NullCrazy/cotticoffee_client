@@ -1,6 +1,6 @@
 import 'package:cotticoffee_client/global/style.dart';
 import 'package:cotticoffee_client/pages/tabs/order/model/order_model.dart';
-import 'package:cotticoffee_client/widget/abite_image_widget.dart';
+import 'package:cotticoffee_client/widget/cotti_image_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -26,7 +26,7 @@ class _OrderProductItemState extends State<OrderProductItem> {
           height: 64.h,
           child: Stack(
             children: [
-              ABiteImageWidget(
+              CottiImageWidget(
                 url: widget.productModel.picPath ?? '',
                 imgW: 64.w,
                 imgH: 64.h,

@@ -8,7 +8,7 @@ import 'package:flutter_svg/svg.dart';
 /// Description: 图片组件，支持默认占位，圆角，不同质量的压缩
 /// Author: yapeng.zhu@abite.com
 /// Date: 2021/12/4
-class ABiteImageWidget extends StatelessWidget {
+class CottiImageWidget extends StatelessWidget {
   ///网络图片地址，必传参数
   final String url;
 
@@ -40,7 +40,7 @@ class ABiteImageWidget extends StatelessWidget {
   final String defImgPath = "assets/images/ic_default.svg";
 
   ///默认的图片显示模式
-  final BoxFit defaultFit = BoxFit.none;
+  BoxFit defaultFit = BoxFit.none;
 
   ///默认圆角
   final BorderRadius defaultRadius = const BorderRadius.all(Radius.circular(0));
@@ -52,9 +52,10 @@ class ABiteImageWidget extends StatelessWidget {
 
   final Duration fadeOutDuration;
 
-  ABiteImageWidget({
+  CottiImageWidget({
     Key? key,
     required this.url,
+    this.defaultFit = BoxFit.none,
     this.imgW,
     this.imgH,
     this.defImagePath,

@@ -1,0 +1,97 @@
+/// Description:
+/// Author: xingguo.lei@abite.com
+/// Date: 2022/10/11 2:08 PM
+import 'package:flutter/widgets.dart';
+
+class IconFont {
+  static const String _family = 'iconfont';
+
+  IconFont._();
+
+  static const IconData icon_youjiantou1 = IconData(0xe68f, fontFamily: _family);
+  static const IconData icon_a_ = IconData(0xe690, fontFamily: _family);
+  static const IconData icon_peisongfei = IconData(0xe68e, fontFamily: _family);
+  static const IconData icon_yonghu = IconData(0xe68c, fontFamily: _family);
+  static const IconData icon_dizhi = IconData(0xe68d, fontFamily: _family);
+  static const IconData icon_jiahao = IconData(0xe68a, fontFamily: _family);
+  static const IconData icon_zuojiantou = IconData(0xe68b, fontFamily: _family);
+  static const IconData icon_dancengchuangguanbi = IconData(0xe67a, fontFamily: _family);
+  static const IconData icon_xuanzhong = IconData(0xe687, fontFamily: _family);
+  static const IconData icon_shanchu = IconData(0xe688, fontFamily: _family);
+  static const IconData icon_juli = IconData(0xe689, fontFamily: _family);
+  static const IconData icon_daohang = IconData(0xe675, fontFamily: _family);
+  static const IconData icon_dengpao = IconData(0xe676, fontFamily: _family);
+  static const IconData icon_jianhao = IconData(0xe677, fontFamily: _family);
+  static const IconData icon_bukexuan = IconData(0xe678, fontFamily: _family);
+  static const IconData icon_aixin = IconData(0xe679, fontFamily: _family);
+  static const IconData icon_shuaxin = IconData(0xe67b, fontFamily: _family);
+  static const IconData icon_shanghuajiantou = IconData(0xe67c, fontFamily: _family);
+  static const IconData icon_sousuo = IconData(0xe67d, fontFamily: _family);
+  static const IconData icon_xiajiantou = IconData(0xe67e, fontFamily: _family);
+  static const IconData icon_lianxidianhua = IconData(0xe67f, fontFamily: _family);
+  static const IconData icon_dingweichengshi = IconData(0xe680, fontFamily: _family);
+  static const IconData icon_weixuanzhong = IconData(0xe681, fontFamily: _family);
+  static const IconData icon_xuanzechengshixiala = IconData(0xe682, fontFamily: _family);
+  static const IconData icon_youjiantou = IconData(0xe683, fontFamily: _family);
+  static const IconData icon_mendian = IconData(0xe684, fontFamily: _family);
+  static const IconData icon_xiangqing = IconData(0xe685, fontFamily: _family);
+  static const IconData icon_yijianqingchu = IconData(0xe686, fontFamily: _family);
+  static const IconData icon_wechat_color = IconData(0xe62e, fontFamily: _family);
+  static const IconData icon_gift_color = IconData(0xe630, fontFamily: _family);
+  static const IconData icon_gift = IconData(0xe631, fontFamily: _family);
+  static const IconData icon_system = IconData(0xe632, fontFamily: _family);
+  static const IconData icon_help = IconData(0xe633, fontFamily: _family);
+  static const IconData icon_address = IconData(0xe634, fontFamily: _family);
+  static const IconData icon_help_color = IconData(0xe639, fontFamily: _family);
+  static const IconData icon_failure = IconData(0xe63d, fontFamily: _family);
+  static const IconData icon_pay = IconData(0xe641, fontFamily: _family);
+  static const IconData icon_less = IconData(0xe645, fontFamily: _family);
+  static const IconData icon_copy = IconData(0xe646, fontFamily: _family);
+  static const IconData icon_more_down_01 = IconData(0xe647, fontFamily: _family);
+  static const IconData icon_more_down = IconData(0xe648, fontFamily: _family);
+  static const IconData icon_shopping_02 = IconData(0xe649, fontFamily: _family);
+  static const IconData icon_add = IconData(0xe64a, fontFamily: _family);
+  static const IconData icon_add_02 = IconData(0xe64b, fontFamily: _family);
+  static const IconData icon_tips = IconData(0xe64c, fontFamily: _family);
+  static const IconData icon_add_01 = IconData(0xe64d, fontFamily: _family);
+  static const IconData icon_select = IconData(0xe64e, fontFamily: _family);
+  static const IconData icon_detel = IconData(0xe64f, fontFamily: _family);
+  static const IconData icon_unselect = IconData(0xe650, fontFamily: _family);
+  static const IconData icon_my_01 = IconData(0xe651, fontFamily: _family);
+  static const IconData icon_home_01 = IconData(0xe652, fontFamily: _family);
+  static const IconData icon_activity_01 = IconData(0xe653, fontFamily: _family);
+  static const IconData icon_shopping_01 = IconData(0xe654, fontFamily: _family);
+  static const IconData icon_go_on = IconData(0xe655, fontFamily: _family);
+  static const IconData icon_my = IconData(0xe657, fontFamily: _family);
+  static const IconData icon_top = IconData(0xe658, fontFamily: _family);
+  static const IconData icon_shopping = IconData(0xe659, fontFamily: _family);
+  static const IconData icon_home_02 = IconData(0xe65a, fontFamily: _family);
+  static const IconData icon_home_03 = IconData(0xe65b, fontFamily: _family);
+  static const IconData icon_activity = IconData(0xe656, fontFamily: _family);
+  static const IconData icon_close = IconData(0xe65c, fontFamily: _family);
+  static const IconData icon_acid = IconData(0xe65e, fontFamily: _family);
+  static const IconData icon_spicy = IconData(0xe65f, fontFamily: _family);
+  static const IconData icon_sweet = IconData(0xe660, fontFamily: _family);
+  static const IconData icon_salty = IconData(0xe661, fontFamily: _family);
+  static const IconData icon_chili_01 = IconData(0xe65d, fontFamily: _family);
+  static const IconData icon_cook = IconData(0xe662, fontFamily: _family);
+  static const IconData icon_time = IconData(0xe663, fontFamily: _family);
+  static const IconData icon_chili = IconData(0xe664, fontFamily: _family);
+  static const IconData icon_address_01 = IconData(0xe665, fontFamily: _family);
+  static const IconData icon_left = IconData(0xe666, fontFamily: _family);
+  static const IconData icon_Fullscreen = IconData(0xe668, fontFamily: _family);
+  static const IconData icon_Exitfullscreen = IconData(0xe667, fontFamily: _family);
+  static const IconData icon_clean = IconData(0xe669, fontFamily: _family);
+  static const IconData icon_search = IconData(0xe66a, fontFamily: _family);
+  static const IconData icon_paysuccess = IconData(0xe66b, fontFamily: _family);
+  static const IconData icon_right = IconData(0xe66c, fontFamily: _family);
+  static const IconData icon_post = IconData(0xe66d, fontFamily: _family);
+  static const IconData icon_cargo = IconData(0xe66e, fontFamily: _family);
+  static const IconData icon_success = IconData(0xe66f, fontFamily: _family);
+  static const IconData icon_fail = IconData(0xe670, fontFamily: _family);
+  static const IconData icon_edit = IconData(0xe671, fontFamily: _family);
+  static const IconData icon_LOGO = IconData(0xe672, fontFamily: _family);
+  static const IconData icon_backhome = IconData(0xe673, fontFamily: _family);
+  static const IconData icon_help_color_copy = IconData(0xe674, fontFamily: _family);
+  static const IconData icon_tanhao = IconData(0xe602, fontFamily: _family);
+}
