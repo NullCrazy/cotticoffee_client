@@ -1,4 +1,4 @@
-import 'package:cotticoffee_client/pages/tabs/mine/entity/user_info_entity.dart';
+import 'package:cotticoffee_client/pages/tabs/mine/my/entity/user_info_entity.dart';
 
 class MineState {
   UserInfoEntity? userInfoEntity;

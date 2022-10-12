@@ -29,6 +29,7 @@ dependencies:
   fluwx: ^3.6.1+4
   #支付宝
   tobias: ^2.3.0
+  package_info: ^2.0.2
 
   cotticommon:
     git:

@@ -1,7 +1,7 @@
 import 'package:cotticoffee_client/global/icon_font.dart';
 import 'package:cotticoffee_client/global/style.dart';
-import 'package:cotticoffee_client/pages/tabs/mine/bloc/mine_bloc.dart';
-import 'package:cotticoffee_client/pages/tabs/mine/bloc/mine_state.dart';
+import 'package:cotticoffee_client/pages/tabs/mine/my/bloc/mine_bloc.dart';
+import 'package:cotticoffee_client/pages/tabs/mine/my/bloc/mine_state.dart';
 import 'package:cotticoffee_client/utils/string_util.dart';
 import 'package:cotticoffee_client/widget/cotti_image_widget.dart';
 import 'package:cotticommon/bloc/user_bloc.dart';

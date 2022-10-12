@@ -1,5 +1,7 @@
 import 'package:cotticoffee_client/global/icon_font.dart';
 import 'package:cotticoffee_client/global/style.dart';
+import 'package:cotticoffee_client/routers/mine_router.dart';
+import 'package:cotticommon/cotticommon.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -29,7 +31,11 @@ class FunctionList extends StatelessWidget {
             return _buildItem(IconFont.icon_help, '客服帮助');
           }
           if (index == 3) {
-            return _buildItem(IconFont.icon_system, '设置');
+            return GestureDetector(
+              onTap: () => NavigatorUtils.push(context, MineRouter.settingPage),
+              behavior: HitTestBehavior.opaque,
+              child: _buildItem(IconFont.icon_system, '设置'),
+            );
           }
           return const SizedBox();
         },

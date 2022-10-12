@@ -1,5 +1,5 @@
 import 'package:bloc/bloc.dart';
-import 'package:cotticoffee_client/pages/tabs/mine/api/mine_api.dart';
+import 'package:cotticoffee_client/pages/tabs/mine/my/api/mine_api.dart';
 
 import 'mine_event.dart';
 import 'mine_state.dart';

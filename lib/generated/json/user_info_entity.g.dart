@@ -1,5 +1,5 @@
 import 'package:cotticoffee_client/generated/json/base/json_convert_content.dart';
-import 'package:cotticoffee_client/pages/tabs/mine/entity/user_info_entity.dart';
+import 'package:cotticoffee_client/pages/tabs/mine/my/entity/user_info_entity.dart';
 
 UserInfoEntity $UserInfoEntityFromJson(Map<String, dynamic> json) {
 	final UserInfoEntity userInfoEntity = UserInfoEntity();

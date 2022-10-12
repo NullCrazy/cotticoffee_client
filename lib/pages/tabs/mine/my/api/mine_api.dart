@@ -1,5 +1,5 @@
 import 'package:cotticoffee_client/network/cotti_net_work.dart';
-import 'package:cotticoffee_client/pages/tabs/mine/entity/user_info_entity.dart';
+import 'package:cotticoffee_client/pages/tabs/mine/my/entity/user_info_entity.dart';
 
 /// Description:
 /// Author: xingguo.lei@abite.com
