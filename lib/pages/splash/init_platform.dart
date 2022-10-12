@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:abitelogin/pages/login/view/one_key_login_helper.dart';
+import 'package:cotticommon/cotticommon.dart';
 import 'package:flutter/cupertino.dart';
 
 /// Description:
@@ -9,6 +10,7 @@ import 'package:flutter/cupertino.dart';
 class InitPlatform {
   static Future<void> initPlatform(BuildContext context) async {
     _initShanyan();
+    await SpUtil.getInstance();
   }
 
   static _initShanyan() {

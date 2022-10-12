@@ -27,23 +27,27 @@ class Env {
     envName: EnvConfig.debug,
     baseUrl: "https://gatewaydev.abite.com",
     pushAppKey: "a9ee95c9bd945500dd72be6a",
+    h5: 'https://mdev.cotticoffee.com',
   );
 
   static final EnvConfig _testConfig = EnvConfig(
     envName: EnvConfig.test,
     baseUrl: "https://gatewaytest1.abite.com",
     pushAppKey: "a9ee95c9bd945500dd72be6a",
+    h5: 'https://mtest1.cotticoffee.com',
   );
 
   static final EnvConfig _preConfig = EnvConfig(
     envName: EnvConfig.pre,
     baseUrl: "https://gatewaypre.abite.com",
     pushAppKey: "a9ee95c9bd945500dd72be6a",
+    h5: 'https://mpre.cotticoffee.com',
   );
 
   static final EnvConfig _prodConfig = EnvConfig(
     envName: EnvConfig.prod,
     baseUrl: "https://gateway.abite.com",
+    h5: 'https://m.cotticoffee.com',
     isDebug: false,
   );
 }

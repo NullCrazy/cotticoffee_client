@@ -30,10 +30,12 @@ class EnvConfig {
   ///默认添加了测试环境，线上重新传
   final String? wxAppID;
   final String? wxAppSecret;
+  final String? h5;
 
   EnvConfig({
     required this.baseUrl,
     required this.envName,
+    required this.h5,
     this.isDebug = true,
     this.wxAppID = "wx9f05573841063112",
     this.wxAppSecret = "6626699a7c2c0f9ceacc8d9e91c42249",

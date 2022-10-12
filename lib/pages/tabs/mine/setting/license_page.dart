@@ -10,50 +10,47 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 /// Description:
 /// Author: xingguo.lei@abite.com
-/// Date: 2022/10/12 7:15 PM
-class SettingPage extends StatelessWidget {
-  const SettingPage({Key? key}) : super(key: key);
+/// Date: 2022/10/12 10:27 PM
+class LicensePage extends StatefulWidget {
+  const LicensePage({Key? key}) : super(key: key);
 
+  @override
+  State<LicensePage> createState() => _LicensePageState();
+}
+
+class _LicensePageState extends State<LicensePage> {
   @override
   Widget build(BuildContext context) {
     return CustomPageWidget(
-        title: '设置',
-        child: ListView.separated(
-          padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 12.h),
-          itemBuilder: (context, index) {
-            if (index == 0) {
-              return _buildItem("账号与安全");
-            }
-            if (index == 1) {
-              return _buildItem("经营证照");
-            }
-            if (index == 2) {
-              return InkWell(
-                onTap: () => NavigatorUtils.push(
-                  context,
-                  WebViewRouter.webView,
-                  params: {'url': '${Env.envConfig.h5}/#/price'},
-                ),
-                child: _buildItem("价格说明"),
-              );
-            }
-            if (index == 3) {
-              return InkWell(
-                onTap: () => NavigatorUtils.push(context, MineRouter.aboutPage),
-                child: _buildItem("关于我们"),
-              );
-            }
-            return const SizedBox();
-          },
-          separatorBuilder: (context, index) {
-            return Container(
+      title: '经营证照',
+      child: Container(
+        margin: EdgeInsets.symmetric(horizontal: 16.w, vertical: 12.h),
+        child: Column(
+          children: [
+            InkWell(
+              onTap: () => NavigatorUtils.push(
+                context,
+                WebViewRouter.webView,
+                params: {'url': '${Env.envConfig.h5}/#/platform'},
+              ),
+              child: _buildItem("平台资质"),
+            ),
+            Container(
               height: 0.5.h,
               color: dividerGray,
               margin: EdgeInsets.symmetric(horizontal: 18.w),
-            );
-          },
-          itemCount: 4,
-        ));
+            ),
+            InkWell(
+              onTap: () => NavigatorUtils.push(
+                context,
+                MineRouter.shopLicensePage,
+              ),
+              child: _buildItem("门店资质"),
+            ),
+          ],
+        ),
+      ),
+    );
   }
 
   Widget _buildItem(String name) {

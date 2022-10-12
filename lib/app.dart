@@ -1,7 +1,10 @@
+import 'package:cotticoffee_client/config/config_bloc.dart';
+import 'package:cotticoffee_client/config/config_event.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'pages/splash/splash_page.dart';
 
@@ -32,7 +35,14 @@ class CottiCoffeeApp extends StatelessWidget {
             builder: (context, widget) {
               return MediaQuery(
                 data: MediaQuery.of(context).copyWith(textScaleFactor: 1.0),
-                child: widget!,
+                child: MultiBlocProvider(
+                  providers: [
+                    BlocProvider<ConfigBloc>(
+                      create: (BuildContext context) => ConfigBloc()..add(GetConfigEvent()),
+                    ),
+                  ],
+                  child: widget!,
+                ),
               );
             }),
       ),

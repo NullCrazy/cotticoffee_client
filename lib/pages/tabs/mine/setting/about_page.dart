@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:cotticoffee_client/config/env.dart';
 import 'package:cotticoffee_client/global/icon_font.dart';
 import 'package:cotticoffee_client/global/style.dart';
 import 'package:cotticoffee_client/routers/web_view_router.dart';
@@ -7,7 +8,6 @@ import 'package:cotticoffee_client/widget/cotti_image_widget.dart';
 import 'package:cotticoffee_client/widget/custom_page_widget.dart';
 import 'package:cotticommon/cotticommon.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:package_info/package_info.dart';
 
@@ -75,8 +75,7 @@ class _AboutPageState extends State<AboutPage> {
           Text(
             Platform.isIOS
                 ? "v${packageInfo?.version}(${packageInfo?.buildNumber})"
-                : "v${packageInfo?.version}(${const String.fromEnvironment("BUILDNO",
-                defaultValue: "Run")})",
+                : "v${packageInfo?.version}(${const String.fromEnvironment("BUILDNO", defaultValue: "Run")})",
             style: TextStyle(color: textGray, fontSize: 14.sp),
           ),
           SizedBox(height: 14.h),
@@ -92,7 +91,7 @@ class _AboutPageState extends State<AboutPage> {
           onTap: () => NavigatorUtils.push(
             context,
             WebViewRouter.webView,
-            params: {'url': 'https://mtest1.cotticoffee.com/#/online/service'},
+            params: {'url': '${Env.envConfig.h5}/#/online/service'},
           ),
           child: _buildItem('用户使用协议'),
         ),
@@ -105,7 +104,7 @@ class _AboutPageState extends State<AboutPage> {
           onTap: () => NavigatorUtils.push(
             context,
             WebViewRouter.webView,
-            params: {'url': 'https://mtest1.cotticoffee.com/#/online/privacy'},
+            params: {'url': '${Env.envConfig.h5}/#/online/privacy'},
           ),
           child: _buildItem('用户隐私协议'),
         ),
