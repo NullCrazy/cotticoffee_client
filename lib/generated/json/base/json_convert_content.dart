@@ -6,6 +6,7 @@
 import 'package:flutter/material.dart' show debugPrint;
 import 'package:cotticoffee_client/config/entity/config_entity.dart';
 import 'package:cotticoffee_client/pages/tabs/mine/my/entity/user_info_entity.dart';
+import 'package:cotticoffee_client/pages/tabs/mine/setting/entity/shop_license_entity.dart';
 import 'package:cotticoffee_client/pages/tabs/order/model/order_cancel_reason_model.dart';
 import 'package:cotticoffee_client/pages/tabs/order/model/order_detail_model.dart';
 import 'package:cotticoffee_client/pages/tabs/order/model/order_express.dart';
@@ -25,6 +26,8 @@ class JsonConvert {
 		(ConfigEntity).toString(): ConfigEntity.fromJson,
 		(ConfigServiceModeList).toString(): ConfigServiceModeList.fromJson,
 		(UserInfoEntity).toString(): UserInfoEntity.fromJson,
+		(ShopLicenseList).toString(): ShopLicenseList.fromJson,
+		(ShopLicenseEntity).toString(): ShopLicenseEntity.fromJson,
 		(CancelReasonList).toString(): CancelReasonList.fromJson,
 		(OrderCancelReasonModel).toString(): OrderCancelReasonModel.fromJson,
 		(OrderDetailModel).toString(): OrderDetailModel.fromJson,
@@ -132,6 +135,12 @@ class JsonConvert {
 		}
 		if(<UserInfoEntity>[] is M){
 			return data.map<UserInfoEntity>((Map<String, dynamic> e) => UserInfoEntity.fromJson(e)).toList() as M;
+		}
+		if(<ShopLicenseList>[] is M){
+			return data.map<ShopLicenseList>((Map<String, dynamic> e) => ShopLicenseList.fromJson(e)).toList() as M;
+		}
+		if(<ShopLicenseEntity>[] is M){
+			return data.map<ShopLicenseEntity>((Map<String, dynamic> e) => ShopLicenseEntity.fromJson(e)).toList() as M;
 		}
 		if(<CancelReasonList>[] is M){
 			return data.map<CancelReasonList>((Map<String, dynamic> e) => CancelReasonList.fromJson(e)).toList() as M;

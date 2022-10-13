@@ -22,10 +22,16 @@ class SettingPage extends StatelessWidget {
           padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 12.h),
           itemBuilder: (context, index) {
             if (index == 0) {
-              return _buildItem("账号与安全");
+              return InkWell(
+                onTap: () => NavigatorUtils.push(context, MineRouter.accountSecurityPage),
+                child: _buildItem("账号与安全"),
+              );
             }
             if (index == 1) {
-              return _buildItem("经营证照");
+              return InkWell(
+                onTap: () => NavigatorUtils.push(context, MineRouter.licensePage),
+                child: _buildItem("经营证照"),
+              );
             }
             if (index == 2) {
               return InkWell(
@@ -71,6 +77,7 @@ class SettingPage extends StatelessWidget {
           Icon(
             IconFont.icon_right,
             size: 20.w,
+            color: textGray,
           ),
         ],
       ),
