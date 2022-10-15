@@ -2,9 +2,12 @@ import 'dart:ui';
 
 import 'package:cotticoffee_client/global/icon_font.dart';
 import 'package:cotticoffee_client/global/style.dart';
+import 'package:cotticoffee_client/pages/tabs/mine/my/bloc/mine_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import '../bloc/mine_state.dart';
 
 /// Description:
 /// Author: xingguo.lei@abite.com
@@ -14,18 +17,28 @@ class CouponWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 68.h,
-      margin: EdgeInsets.only(top: 10.h),
-      padding: EdgeInsets.fromLTRB(12.w, 12.w, 8.w, 12.w),
-      color: Colors.white,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          _buildCoupon('优惠券', 0, '10张即将到期'),
-          _buildCoupon('奖励金', 98, '10即将到期'),
-        ],
-      ),
+    return BlocBuilder<MineBloc, MineState>(
+      builder: (context, state) {
+        num totalCouponAmount = state.couponBountyEntity?.couponMsg?.totalCouponAmount ?? 0;
+        num expiringSoonCouponAmount =
+            state.couponBountyEntity?.couponMsg?.expiringSoonCouponAmount ?? 0;
+        num bounty = state.couponBountyEntity?.bountyMsg?.bounty ?? 0;
+        bool display = state.couponBountyEntity?.bountyMsg?.display ?? false;
+        return Container(
+          height: 68.h,
+          margin: EdgeInsets.only(top: 10.h),
+          padding: EdgeInsets.fromLTRB(12.w, 12.w, 8.w, 12.w),
+          color: Colors.white,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              _buildCoupon('优惠券', totalCouponAmount,
+                  expiringSoonCouponAmount > 0 ? '$expiringSoonCouponAmount张即将过期' : ''),
+              if (display) _buildCoupon('奖励金', bounty, ''),
+            ],
+          ),
+        );
+      },
     );
   }
 
@@ -35,7 +48,7 @@ class CouponWidget extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          '优惠券',
+          title,
           style: TextStyle(
             fontSize: 12.sp,
             color: textGray,
@@ -76,7 +89,7 @@ class CouponWidget extends StatelessWidget {
               child: Icon(
                 IconFont.icon_youjiantou,
                 color: textGray,
-                size: 12.w,
+                size: 11.w,
               ),
             ),
           ],

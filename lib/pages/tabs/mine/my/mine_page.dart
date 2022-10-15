@@ -25,7 +25,7 @@ class _MinePageState extends State<MinePage> with AutomaticKeepAliveClientMixin 
   @override
   void initState() {
     super.initState();
-    _bloc.add(GetUserInfoEvent());
+    _bloc.add(InitUserInfoEvent());
   }
 
   @override

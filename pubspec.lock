@@ -121,13 +121,13 @@ packages:
       name: convert
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "3.0.2"
+    version: "3.1.0"
   cotticommon:
     dependency: "direct main"
     description:
       path: "."
       ref: master
-      resolved-ref: "0dba1fbce33c62a983fdea1a68f698586a97b549"
+      resolved-ref: d36ea8844d4a490d44e5b03697cab09363db6675
       url: "https://flutter-readonly:flutter-readonly@git.yummy.tech/frontend/cotticommon.git"
     source: git
     version: "0.0.1"
@@ -521,7 +521,7 @@ packages:
       name: provider
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "6.0.3"
+    version: "6.0.4"
   pub_semver:
     dependency: transitive
     description:
@@ -556,7 +556,7 @@ packages:
       name: sensors_analytics_flutter_plugin
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.2.0"
+    version: "2.2.1"
   shanyan:
     dependency: transitive
     description:

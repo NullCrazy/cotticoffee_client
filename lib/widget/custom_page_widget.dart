@@ -52,7 +52,7 @@ class _CustomPageWidgetState extends State<CustomPageWidget> {
       value: widget.darkThem ?? SystemUiOverlayStyle.dark,
       child: Scaffold(
         appBar: widget.showAppBar ? _buildAppBar() : null,
-        backgroundColor: const Color(0xFFF7F7F7),
+        backgroundColor: const Color(0xFFF5F6F7),
         body: Stack(
           children: [
             widget.child,

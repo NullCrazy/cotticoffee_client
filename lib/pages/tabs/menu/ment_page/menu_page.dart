@@ -27,7 +27,6 @@ class _MenuPageState extends State<MenuPage> with AutomaticKeepAliveClientMixin 
       child: Column(
         children: [
           _header(),
-          _banner(),
           Expanded(child: _content()),
         ],
       ),
@@ -59,7 +58,7 @@ class _MenuPageState extends State<MenuPage> with AutomaticKeepAliveClientMixin 
     return Row(
       children: [
         SizedBox(
-          width: 80.w,
+          width: 75.w,
           child: ListView(),
         ),
         Expanded(

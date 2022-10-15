@@ -6,11 +6,12 @@ import 'mine_state.dart';
 
 class MineBloc extends Bloc<MineEvent, MineState> {
   MineBloc() : super(MineState()) {
-    on<GetUserInfoEvent>(_getUserInfo);
+    on<InitUserInfoEvent>(_initUserInfo);
   }
 
-  _getUserInfo(_, emit) async {
+  _initUserInfo(_, emit) async {
     state.userInfoEntity = await MineApi.getPersonalInfo();
+    state.couponBountyEntity ??= await MineApi.getCouponAndBounty();
     emit(state.copy());
   }
 }
