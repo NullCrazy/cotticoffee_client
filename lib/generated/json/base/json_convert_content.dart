@@ -7,7 +7,7 @@ import 'package:flutter/material.dart' show debugPrint;
 import 'package:cotticoffee_client/config/entity/config_entity.dart';
 import 'package:cotticoffee_client/pages/tabs/menu/entity/custom_marketing_label_entity.dart';
 import 'package:cotticoffee_client/pages/tabs/menu/entity/marketing_label_entity.dart';
-import 'package:cotticoffee_client/pages/tabs/menu/entity/menu_entity.dart';
+import 'package:cotticoffee_client/pages/tabs/menu/entity/menu_classify.dart';
 import 'package:cotticoffee_client/pages/tabs/menu/entity/menu_item_entity.dart';
 import 'package:cotticoffee_client/pages/tabs/menu/entity/menu_root_entity.dart';
 import 'package:cotticoffee_client/pages/tabs/menu/entity/sku_entity.dart';
@@ -37,7 +37,7 @@ class JsonConvert {
 		(ConfigServiceModeList).toString(): ConfigServiceModeList.fromJson,
 		(CustomMarketingLabelEntity).toString(): CustomMarketingLabelEntity.fromJson,
 		(MarketingLabelEntity).toString(): MarketingLabelEntity.fromJson,
-		(MenuEntity).toString(): MenuEntity.fromJson,
+		(MenuClassify).toString(): MenuClassify.fromJson,
 		(MenuItemEntity).toString(): MenuItemEntity.fromJson,
 		(MenuRootEntity).toString(): MenuRootEntity.fromJson,
 		(SkuEntity).toString(): SkuEntity.fromJson,
@@ -164,8 +164,8 @@ class JsonConvert {
 		if(<MarketingLabelEntity>[] is M){
 			return data.map<MarketingLabelEntity>((Map<String, dynamic> e) => MarketingLabelEntity.fromJson(e)).toList() as M;
 		}
-		if(<MenuEntity>[] is M){
-			return data.map<MenuEntity>((Map<String, dynamic> e) => MenuEntity.fromJson(e)).toList() as M;
+		if(<MenuClassify>[] is M){
+			return data.map<MenuClassify>((Map<String, dynamic> e) => MenuClassify.fromJson(e)).toList() as M;
 		}
 		if(<MenuItemEntity>[] is M){
 			return data.map<MenuItemEntity>((Map<String, dynamic> e) => MenuItemEntity.fromJson(e)).toList() as M;

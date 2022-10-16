@@ -1,5 +1,6 @@
 import 'package:cotticoffee_client/generated/json/base/json_field.dart';
 import 'package:cotticoffee_client/generated/json/menu_item_entity.g.dart';
+import 'package:cotticoffee_client/pages/tabs/menu/entity/base_menu.dart';
 import 'package:cotticoffee_client/pages/tabs/menu/entity/custom_marketing_label_entity.dart';
 import 'package:cotticoffee_client/pages/tabs/menu/entity/marketing_label_entity.dart';
 import 'dart:convert';
@@ -7,7 +8,7 @@ import 'dart:convert';
 import 'package:cotticoffee_client/pages/tabs/menu/entity/sku_entity.dart';
 
 @JsonSerializable()
-class MenuItemEntity {
+class MenuItemEntity extends BaseMenu {
   String? title;
   String? itemNo;
   List<SkuEntity>? skuCombinList;
@@ -19,7 +20,7 @@ class MenuItemEntity {
   String? placeOfOrigin;
   String? workmanship;
   String? flavor;
-  MarketingLabelEntity? marketingLabel;
+  List<MarketingLabelEntity>? marketingLabel;
   CustomMarketingLabelEntity? customMarketingLabel;
   int? isDisplay;
   int? skuAllSaleOut;

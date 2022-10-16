@@ -1,54 +1,60 @@
 import 'package:cotticoffee_client/generated/json/base/json_convert_content.dart';
-import 'package:cotticoffee_client/pages/tabs/menu/entity/menu_entity.dart';
+import 'package:cotticoffee_client/pages/tabs/menu/entity/menu_classify.dart';
+import 'package:cotticoffee_client/pages/tabs/menu/entity/base_menu.dart';
+
 import 'package:cotticoffee_client/pages/tabs/menu/entity/menu_item_entity.dart';
 
 
-MenuEntity $MenuEntityFromJson(Map<String, dynamic> json) {
-	final MenuEntity menuEntity = MenuEntity();
+MenuClassify $MenuClassifyFromJson(Map<String, dynamic> json) {
+	final MenuClassify menuClassify = MenuClassify();
 	final String? id = jsonConvert.convert<String>(json['id']);
 	if (id != null) {
-		menuEntity.id = id;
+		menuClassify.id = id;
 	}
 	final String? code = jsonConvert.convert<String>(json['code']);
 	if (code != null) {
-		menuEntity.code = code;
+		menuClassify.code = code;
 	}
 	final String? name = jsonConvert.convert<String>(json['name']);
 	if (name != null) {
-		menuEntity.name = name;
+		menuClassify.name = name;
 	}
 	final int? sort = jsonConvert.convert<int>(json['sort']);
 	if (sort != null) {
-		menuEntity.sort = sort;
+		menuClassify.sort = sort;
 	}
 	final String? iconUrl = jsonConvert.convert<String>(json['iconUrl']);
 	if (iconUrl != null) {
-		menuEntity.iconUrl = iconUrl;
+		menuClassify.iconUrl = iconUrl;
 	}
 	final String? tagUrl = jsonConvert.convert<String>(json['tagUrl']);
 	if (tagUrl != null) {
-		menuEntity.tagUrl = tagUrl;
+		menuClassify.tagUrl = tagUrl;
 	}
 	final String? classifyDesc = jsonConvert.convert<String>(json['classifyDesc']);
 	if (classifyDesc != null) {
-		menuEntity.classifyDesc = classifyDesc;
+		menuClassify.classifyDesc = classifyDesc;
 	}
 	final List<MenuItemEntity>? items = jsonConvert.convertListNotNull<MenuItemEntity>(json['items']);
 	if (items != null) {
-		menuEntity.items = items;
+		menuClassify.items = items;
 	}
-	final List<MenuEntity>? subList = jsonConvert.convertListNotNull<MenuEntity>(json['subList']);
+	final List<MenuClassify>? subList = jsonConvert.convertListNotNull<MenuClassify>(json['subList']);
 	if (subList != null) {
-		menuEntity.subList = subList;
+		menuClassify.subList = subList;
 	}
-	final List<MenuEntity>? triList = jsonConvert.convertListNotNull<MenuEntity>(json['triList']);
+	final List<MenuClassify>? triList = jsonConvert.convertListNotNull<MenuClassify>(json['triList']);
 	if (triList != null) {
-		menuEntity.triList = triList;
+		menuClassify.triList = triList;
 	}
-	return menuEntity;
+	final int? tag = jsonConvert.convert<int>(json['tag']);
+	if (tag != null) {
+		menuClassify.tag = tag;
+	}
+	return menuClassify;
 }
 
-Map<String, dynamic> $MenuEntityToJson(MenuEntity entity) {
+Map<String, dynamic> $MenuClassifyToJson(MenuClassify entity) {
 	final Map<String, dynamic> data = <String, dynamic>{};
 	data['id'] = entity.id;
 	data['code'] = entity.code;
@@ -60,5 +66,6 @@ Map<String, dynamic> $MenuEntityToJson(MenuEntity entity) {
 	data['items'] =  entity.items?.map((v) => v.toJson()).toList();
 	data['subList'] =  entity.subList?.map((v) => v.toJson()).toList();
 	data['triList'] =  entity.triList?.map((v) => v.toJson()).toList();
+	data['tag'] = entity.tag;
 	return data;
 }

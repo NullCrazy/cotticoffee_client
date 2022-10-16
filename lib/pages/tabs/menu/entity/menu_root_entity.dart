@@ -1,6 +1,6 @@
 import 'package:cotticoffee_client/generated/json/base/json_field.dart';
 import 'package:cotticoffee_client/generated/json/menu_root_entity.g.dart';
-import 'package:cotticoffee_client/pages/tabs/menu/entity/menu_entity.dart';
+import 'package:cotticoffee_client/pages/tabs/menu/entity/menu_classify.dart';
 
 /// Description:
 /// Author: xingguo.lei@abite.com
@@ -8,7 +8,7 @@ import 'package:cotticoffee_client/pages/tabs/menu/entity/menu_entity.dart';
 
 @JsonSerializable()
 class MenuRootEntity {
-  List<MenuEntity>? rootList;
+  List<MenuClassify>? rootList;
   int? positionForCarousell;
   num? nowTime;
 

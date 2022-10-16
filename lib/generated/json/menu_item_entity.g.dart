@@ -1,5 +1,7 @@
 import 'package:cotticoffee_client/generated/json/base/json_convert_content.dart';
 import 'package:cotticoffee_client/pages/tabs/menu/entity/menu_item_entity.dart';
+import 'package:cotticoffee_client/pages/tabs/menu/entity/base_menu.dart';
+
 import 'package:cotticoffee_client/pages/tabs/menu/entity/custom_marketing_label_entity.dart';
 
 import 'package:cotticoffee_client/pages/tabs/menu/entity/marketing_label_entity.dart';
@@ -53,7 +55,7 @@ MenuItemEntity $MenuItemEntityFromJson(Map<String, dynamic> json) {
 	if (flavor != null) {
 		menuItemEntity.flavor = flavor;
 	}
-	final MarketingLabelEntity? marketingLabel = jsonConvert.convert<MarketingLabelEntity>(json['marketingLabel']);
+	final List<MarketingLabelEntity>? marketingLabel = jsonConvert.convertListNotNull<MarketingLabelEntity>(json['marketingLabel']);
 	if (marketingLabel != null) {
 		menuItemEntity.marketingLabel = marketingLabel;
 	}
@@ -121,7 +123,7 @@ Map<String, dynamic> $MenuItemEntityToJson(MenuItemEntity entity) {
 	data['placeOfOrigin'] = entity.placeOfOrigin;
 	data['workmanship'] = entity.workmanship;
 	data['flavor'] = entity.flavor;
-	data['marketingLabel'] = entity.marketingLabel?.toJson();
+	data['marketingLabel'] =  entity.marketingLabel?.map((v) => v.toJson()).toList();
 	data['customMarketingLabel'] = entity.customMarketingLabel?.toJson();
 	data['isDisplay'] = entity.isDisplay;
 	data['skuAllSaleOut'] = entity.skuAllSaleOut;

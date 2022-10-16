@@ -1,9 +1,9 @@
-import 'package:cotticoffee_client/pages/tabs/menu/entity/menu_entity.dart';
+import 'package:cotticoffee_client/pages/tabs/menu/entity/menu_head.dart';
 
 class MenuState {
-  List<MenuEntity> subList = [];
+  List<MenuHead> menuHeads = [];
 
   MenuState copy() {
-    return MenuState()..subList = subList;
+    return MenuState()..menuHeads = menuHeads;
   }
 }

@@ -1,5 +1,5 @@
 import 'package:cotticoffee_client/network/cotti_net_work.dart';
-import 'package:cotticoffee_client/pages/tabs/menu/entity/menu_entity.dart';
+import 'package:cotticoffee_client/pages/tabs/menu/entity/menu_classify.dart';
 import 'package:cotticoffee_client/pages/tabs/menu/entity/menu_root_entity.dart';
 
 /// Description:
@@ -8,7 +8,7 @@ import 'package:cotticoffee_client/pages/tabs/menu/entity/menu_root_entity.dart'
 class MenuApi {
   static const String _menu = '/item/menu';
 
-  static Future<List<MenuEntity>> getMenu(int takeFoodMode, String shopMdCode) {
+  static Future<List<MenuClassify>> getMenu(int takeFoodMode, String shopMdCode) {
     return CottiNetWork().post(_menu, data: {
       'takeFoodMode': takeFoodMode,
       'shopMdCode': shopMdCode

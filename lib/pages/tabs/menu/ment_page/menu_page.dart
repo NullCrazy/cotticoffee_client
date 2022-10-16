@@ -1,8 +1,14 @@
+import 'package:cotticoffee_client/pages/tabs/menu/ment_page/bloc/menu_bloc.dart';
+import 'package:cotticoffee_client/pages/tabs/menu/ment_page/views/menu_left.dart';
+import 'package:cotticoffee_client/pages/tabs/menu/ment_page/views/menu_right.dart';
 import 'package:cotticoffee_client/widget/custom_page_widget.dart';
 import 'package:cotticoffee_client/widget/scroll_to_index/scroll_to_index.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:sticky_headers/sticky_headers.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+import 'bloc/menu_event.dart';
 
 /// Description:
 /// Author: xingguo.lei@abite.com
@@ -15,20 +21,29 @@ class MenuPage extends StatefulWidget {
 }
 
 class _MenuPageState extends State<MenuPage> with AutomaticKeepAliveClientMixin {
-  final AutoScrollController _controller = AutoScrollController();
+  final MenuBloc _bloc = MenuBloc();
 
   @override
   bool get wantKeepAlive => true;
 
   @override
+  void initState() {
+    super.initState();
+    _bloc.add(MenuListEvent(100, '20300017467'));
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return CustomPageWidget(
-      showAppBar: false,
-      child: Column(
-        children: [
-          _header(),
-          Expanded(child: _content()),
-        ],
+    return BlocProvider(
+      create: (context) => _bloc,
+      child: CustomPageWidget(
+        showAppBar: false,
+        child: Column(
+          children: [
+            _header(),
+            Expanded(child: _content()),
+          ],
+        ),
       ),
     );
   }
@@ -46,8 +61,8 @@ class _MenuPageState extends State<MenuPage> with AutomaticKeepAliveClientMixin 
       color: Colors.blueAccent,
       child: InkWell(
         onTap: () {
-          _controller.scrollToIndex(10,
-              offset: Rect.fromLTRB(0, 50, 0, 0), preferPosition: AutoScrollPosition.begin);
+          // _controller.scrollToIndex(10,
+          //     offset: Rect.fromLTRB(0, 50, 0, 0), preferPosition: AutoScrollPosition.begin);
         },
         child: Text('test'),
       ),
@@ -56,56 +71,18 @@ class _MenuPageState extends State<MenuPage> with AutomaticKeepAliveClientMixin 
 
   _content() {
     return Row(
-      children: [
-        SizedBox(
-          width: 75.w,
-          child: ListView(),
-        ),
+      children: const [
+        MenuLeftWidget(),
         Expanded(
-          child: ListView.builder(
-            padding: EdgeInsets.zero,
-            controller: _controller,
-            itemCount: 100,
-            itemBuilder: (context, index) {
-              return _buildItem(index);
-            },
-          ),
-        )
+          child: MenuRight(),
+        ),
       ],
     );
   }
 
-  Widget _buildItem(int index) {
-    int groupIndex = index * 3;
-    return StickyHeader(
-      header: AutoScrollTag(
-        key: ValueKey(groupIndex),
-        index: groupIndex,
-        controller: _controller,
-        child: Container(
-          height: 50.0,
-          color: Colors.blueGrey[700],
-          padding: EdgeInsets.symmetric(horizontal: 16.0),
-          alignment: Alignment.centerLeft,
-          child: Text(
-            'Header #$groupIndex',
-            style: const TextStyle(color: Colors.white),
-          ),
-        ),
-      ),
-      content: Column(
-        children: List.generate(
-          2,
-          (i) => AutoScrollTag(
-            key: ValueKey(3 * index + i + 1),
-            index: 3 * index + i + 1,
-            controller: _controller,
-            child: ListTile(
-              title: Text('${3 * index + i + 1}'),
-            ),
-          ),
-        ),
-      ),
-    );
+  @override
+  void dispose() {
+    super.dispose();
+    _bloc.close();
   }
 }
