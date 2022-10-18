@@ -14,7 +14,7 @@ class MenuBloc extends Bloc<MenuEvent, MenuState> {
 
   _menuList(MenuListEvent event, emit) async {
     List<MenuClassify> menus = await MenuApi.getMenu(event.takeFoodMode, event.shopMdCode);
-    int index = 0;
+    int index = -1;
     List<MenuHead> menuHeads = [];
     for (var element in menus) {
       for (MenuClassify subItem in (element.subList ?? [])) {

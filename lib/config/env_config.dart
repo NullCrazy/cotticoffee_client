@@ -43,14 +43,22 @@ class EnvConfig {
   });
 
   String get ak {
-    if (envName == prod) {}
+    if (envName == prod || envName == pre) {
+      return Platform.isAndroid
+          ? "Prq5qwZBTI4SBxvWvso5srnA7ptHnKZd"
+          : "363fd453ec682fa6fbc4292289ebbe72";
+    }
     return Platform.isAndroid
         ? "Ku0ShaW2X5uz3xXABvdGfdzx68cwfqJk"
         : "363fd453ec682fa6fbc4292289ebbe72";
   }
 
   String get sk {
-    if (envName == prod) {}
+    if (envName == prod || envName == pre) {
+      return Platform.isAndroid
+          ? "weWTyNcky0adUITdcharyB5LXjVNQnrB"
+          : "363fd453ec682fa6fbc4292289ebbe72";
+    }
     return Platform.isAndroid
         ? "n8oErZzHIPpM5ZcB4dLNifA50orTKU6a"
         : "41c9ad3d5ff17384e0c27f876602484a";

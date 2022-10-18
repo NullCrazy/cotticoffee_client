@@ -1,4 +1,5 @@
 import 'package:cotticoffee_client/global/style.dart';
+import 'package:cotticoffee_client/pages/tabs/menu/entity/menu_head.dart';
 import 'package:cotticoffee_client/pages/tabs/menu/ment_page/bloc/menu_bloc.dart';
 import 'package:cotticoffee_client/pages/tabs/menu/ment_page/bloc/menu_state.dart';
 import 'package:cotticoffee_client/widget/mini_label_widget.dart';
@@ -10,7 +11,11 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 /// Author: xingguo.lei@abite.com
 /// Date: 2022/10/15 10:15 AM
 class MenuLeftWidget extends StatefulWidget {
-  const MenuLeftWidget({Key? key}) : super(key: key);
+  final Function(num) clickItemCallBack;
+  final ValueNotifier? selectIndexNotifier;
+
+  const MenuLeftWidget({Key? key, required this.clickItemCallBack, this.selectIndexNotifier})
+      : super(key: key);
 
   @override
   State<MenuLeftWidget> createState() => _MenuLeftWidgetState();
@@ -18,6 +23,13 @@ class MenuLeftWidget extends StatefulWidget {
 
 class _MenuLeftWidgetState extends State<MenuLeftWidget> {
   int selectIndex = 0;
+  List<MenuHead>? menuHeads;
+
+  @override
+  void initState() {
+    super.initState();
+    widget.selectIndexNotifier?.addListener(_selectIndex);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -39,9 +51,10 @@ class _MenuLeftWidgetState extends State<MenuLeftWidget> {
   Widget _buildList() {
     return BlocBuilder<MenuBloc, MenuState>(
       builder: (bloc, state) {
+        menuHeads = state.menuHeads;
         return ListView.builder(
           padding: EdgeInsets.zero,
-          itemCount: state.menuHeads.length,
+          itemCount: menuHeads?.length ?? 0,
           itemBuilder: (context, index) {
             return _buildItem(index, state);
           },
@@ -54,6 +67,10 @@ class _MenuLeftWidgetState extends State<MenuLeftWidget> {
     return InkWell(
       onTap: () => setState(() {
         selectIndex = index;
+        MenuHead menuHead = state.menuHeads[index];
+        if (menuHead.items.isNotEmpty) {
+          widget.clickItemCallBack(menuHead.key);
+        }
       }),
       child: Stack(
         children: [
@@ -84,10 +101,24 @@ class _MenuLeftWidgetState extends State<MenuLeftWidget> {
 
   Widget _buildLine() {
     return Container(
-      margin: EdgeInsets.only(right: 0.3.w),
       width: 1.w,
       height: double.infinity,
       color: const Color(0xFFE9E9E9),
     );
+  }
+
+  _selectIndex() {
+    int value = widget.selectIndexNotifier?.value;
+    int? indexWhere = menuHeads?.indexWhere((element) => element.key == value);
+    if (indexWhere != null) {
+      selectIndex = indexWhere;
+      setState(() {});
+    }
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    widget.selectIndexNotifier?.removeListener(_selectIndex);
   }
 }

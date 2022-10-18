@@ -2,11 +2,9 @@ import 'package:cotticoffee_client/pages/tabs/menu/ment_page/bloc/menu_bloc.dart
 import 'package:cotticoffee_client/pages/tabs/menu/ment_page/views/menu_left.dart';
 import 'package:cotticoffee_client/pages/tabs/menu/ment_page/views/menu_right.dart';
 import 'package:cotticoffee_client/widget/custom_page_widget.dart';
-import 'package:cotticoffee_client/widget/scroll_to_index/scroll_to_index.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:sticky_headers/sticky_headers.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'bloc/menu_event.dart';
 
@@ -22,6 +20,8 @@ class MenuPage extends StatefulWidget {
 
 class _MenuPageState extends State<MenuPage> with AutomaticKeepAliveClientMixin {
   final MenuBloc _bloc = MenuBloc();
+  ValueNotifier toIndexNotifier = ValueNotifier(-1);
+  ValueNotifier selectIndexNotifier = ValueNotifier(0);
 
   @override
   bool get wantKeepAlive => true;
@@ -29,7 +29,7 @@ class _MenuPageState extends State<MenuPage> with AutomaticKeepAliveClientMixin 
   @override
   void initState() {
     super.initState();
-    _bloc.add(MenuListEvent(100, '20300017467'));
+    _bloc.add(MenuListEvent(100, '20300020814'));
   }
 
   @override
@@ -60,10 +60,7 @@ class _MenuPageState extends State<MenuPage> with AutomaticKeepAliveClientMixin 
       height: 150.h,
       color: Colors.blueAccent,
       child: InkWell(
-        onTap: () {
-          // _controller.scrollToIndex(10,
-          //     offset: Rect.fromLTRB(0, 50, 0, 0), preferPosition: AutoScrollPosition.begin);
-        },
+        onTap: () {},
         child: Text('test'),
       ),
     );
@@ -71,10 +68,21 @@ class _MenuPageState extends State<MenuPage> with AutomaticKeepAliveClientMixin 
 
   _content() {
     return Row(
-      children: const [
-        MenuLeftWidget(),
+      children: [
+        MenuLeftWidget(
+          selectIndexNotifier: selectIndexNotifier,
+          clickItemCallBack: (index) {
+            toIndexNotifier.value = -1;
+            toIndexNotifier.value = index;
+          },
+        ),
         Expanded(
-          child: MenuRight(),
+          child: MenuRight(
+            toIndexNotifier: toIndexNotifier,
+            firstItemIndexCallBack: (index) {
+              selectIndexNotifier.value = index;
+            },
+          ),
         ),
       ],
     );

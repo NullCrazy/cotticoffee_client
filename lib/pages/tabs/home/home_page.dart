@@ -20,13 +20,16 @@ class _HomePageState extends State<HomePage> {
       showAppBar: false,
       child: InkWell(
         onTap: () async {
-          CottiNetWork().post('/cotti-capi/order/getOrderList',
-              data: {"pageNo": 1, "pageSize": 20, "appTabStatus": 1});
+          Image image = Image.network('https://cdn-product-prod.yummy.tech/wechat/cotti/images/cotti_open_1.jpg');
+          image.image.resolve(const ImageConfiguration()).addListener(ImageStreamListener(
+            (ImageInfo info, bool _) {
+              print(info.image.toString());
+            },
+          ));
         },
         child: Container(
-          color: Colors.red,
           alignment: Alignment.center,
-          child: Text('tb_A15#rowIdx_0#filed_A15021'.split("[#|]")[0]),
+          child: Text('test'),
         ),
       ),
     );
