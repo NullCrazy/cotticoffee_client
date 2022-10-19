@@ -19,8 +19,14 @@ void main() {
     );
     SystemChrome.setSystemUIOverlayStyle(systemUiOverlayStyle);
   }
+  realRunApp();
+}
+
+void realRunApp() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await SpUtil.getInstance();
+  MainRouter.init();
   GlobalBlocs.add({UserBloc.blocName: UserBloc()});
   ModuleManager().register(LoginRegistrar()..setClient(CottiNetWork()));
-  MainRouter.init();
   runApp(const CottiCoffeeApp());
 }

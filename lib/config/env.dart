@@ -1,3 +1,5 @@
+import 'package:cotticommon/cotticommon.dart';
+
 import 'env_config.dart';
 
 /// @Date:2021/11/18
@@ -6,12 +8,18 @@ import 'env_config.dart';
 class Env {
   /// flutter run --dart-define=ENV=debug,test,prod
   /// 多渠道打包
-  static const env = String.fromEnvironment('ENV', defaultValue: EnvConfig.pre);
+  static const _env = String.fromEnvironment('ENV', defaultValue: EnvConfig.pre);
+  static const String keyEnv = "key_env";
 
-  static EnvConfig get envConfig => getEnvConfig();
+  static EnvConfig get envConfig => _getEnvConfig();
 
-  static EnvConfig getEnvConfig({String env = env}) {
-    switch (env) {
+  static EnvConfig _getEnvConfig() {
+    String cacheEnv = SpUtil.getString(keyEnv);
+    String currentEnv = _env;
+    if (cacheEnv.isNotEmpty) {
+      currentEnv = cacheEnv;
+    }
+    switch (currentEnv) {
       case EnvConfig.test:
         return _testConfig;
       case EnvConfig.pre:
@@ -19,12 +27,12 @@ class Env {
       case EnvConfig.prod:
         return _prodConfig;
       default:
-        return _debugConfig;
+        return _devConfig;
     }
   }
 
-  static final EnvConfig _debugConfig = EnvConfig(
-    envName: EnvConfig.debug,
+  static final EnvConfig _devConfig = EnvConfig(
+    envName: EnvConfig.dev,
     baseUrl: "https://gatewaydev.abite.com",
     pushAppKey: "a9ee95c9bd945500dd72be6a",
     h5: 'https://mdev.cotticoffee.com',

@@ -25,12 +25,9 @@ class FunctionList extends StatelessWidget {
             return _buildItem(IconFont.icon_address, '地址管理');
           }
           if (index == 1) {
-            return _buildItem(IconFont.icon_gift, '社群福利');
-          }
-          if (index == 2) {
             return _buildItem(IconFont.icon_help, '客服帮助');
           }
-          if (index == 3) {
+          if (index == 2) {
             return GestureDetector(
               onTap: () => NavigatorUtils.push(context, MineRouter.settingPage),
               behavior: HitTestBehavior.opaque,
@@ -46,7 +43,7 @@ class FunctionList extends StatelessWidget {
             margin: EdgeInsets.only(left: 26.w, right: 10.w),
           );
         },
-        itemCount: 4,
+        itemCount: 3,
       ),
     );
   }

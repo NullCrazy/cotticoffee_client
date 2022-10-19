@@ -1,12 +1,15 @@
+import 'package:cotticoffee_client/config/env.dart';
+import 'package:cotticoffee_client/config/env_config.dart';
 import 'package:cotticoffee_client/pages/tabs/mine/my/bloc/mine_bloc.dart';
 import 'package:cotticoffee_client/pages/tabs/mine/my/bloc/mine_event.dart';
+import 'package:cotticoffee_client/pages/tabs/mine/my/views/switch_env.dart';
 import 'package:cotticoffee_client/widget/custom_page_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'views/function_list.dart';
 import 'views/coupon_widget.dart';
+import 'views/function_list.dart';
 import 'views/user_info_widget.dart';
 
 /// Description:
@@ -56,6 +59,7 @@ class _MinePageState extends State<MinePage> with AutomaticKeepAliveClientMixin 
       const UserInfoWidget(),
       const CouponWidget(),
       const FunctionList(),
+      if (Env.envConfig.envName != EnvConfig.prod) const SwitchEnvWidget(),
     ];
   }
 
