@@ -21,12 +21,18 @@ class SwitchEnvWidget extends StatefulWidget {
 }
 
 class _SwitchEnvWidgetState extends State<SwitchEnvWidget> {
-  List envs = [EnvConfig.dev, EnvConfig.test, EnvConfig.pre, EnvConfig.prod];
+  List<Map> envs = [
+    {'envTitle': "开发", 'env': EnvConfig.debug},
+    {'envTitle': "测试", 'env': EnvConfig.test},
+    {'envTitle': "预生产", 'env': EnvConfig.pre},
+    {'envTitle': "生产", 'env': EnvConfig.prod},
+  ];
 
   @override
   Widget build(BuildContext context) {
     return Container(
       color: Colors.white,
+      margin: EdgeInsets.only(top: 12.h),
       padding: EdgeInsets.only(left: 7.w),
       child: _buildItem(Icons.alternate_email, '切换环境'),
     );
@@ -93,15 +99,16 @@ class _SwitchEnvWidgetState extends State<SwitchEnvWidget> {
               Expanded(
                 child: ListView.separated(
                   itemBuilder: (context, index) {
-                    String currEnv = Env.envConfig.envName;
+                    String currEnv = Env.currentEnvConfig.envName;
+                    bool isSelected = envs[index]['env'] == currEnv;
                     return ListTile(
                       onTap: () => _switch(index),
                       leading: Icon(
-                        envs[index] == currEnv ? IconFont.icon_select : IconFont.icon_unselect,
+                        isSelected ? IconFont.icon_select : IconFont.icon_unselect,
                         size: 16.w,
-                        color: envs[index] == currEnv ? primeColor : Colors.grey.shade500,
+                        color: isSelected ? primeColor : Colors.grey.shade500,
                       ),
-                      title: Text(envs[index]),
+                      title: Text(envs[index]['envTitle']),
                     );
                   },
                   separatorBuilder: (context, index) {
@@ -118,14 +125,14 @@ class _SwitchEnvWidgetState extends State<SwitchEnvWidget> {
   }
 
   _switch(int index) async {
-    String currEnv = Env.envConfig.envName;
-    if (currEnv != envs[index]) {
+    String currEnv = Env.currentEnvConfig.envName;
+    if (currEnv != envs[index]['env']) {
       bool isLogin = GlobalBlocs.get<UserBloc>(UserBloc.blocName).isLogin;
       if (isLogin) {
         LoginBloc().add(LoginOutEvent());
       }
       SpUtil.clear();
-      await SpUtil.putString(Env.keyEnv, envs[index]);
+      await SpUtil.putString(Env.keyEnv, envs[index]['env']);
       await Future.delayed(const Duration(milliseconds: 200));
       exit(0);
     }

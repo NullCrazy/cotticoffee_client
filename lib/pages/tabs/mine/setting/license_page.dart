@@ -31,7 +31,7 @@ class _LicensePageState extends State<LicensePage> {
               onTap: () => NavigatorUtils.push(
                 context,
                 WebViewRouter.webView,
-                params: {'url': '${Env.envConfig.h5}/#/platform'},
+                params: {'url': '${Env.currentEnvConfig.h5}/#/platform'},
               ),
               child: _buildItem("平台资质"),
             ),

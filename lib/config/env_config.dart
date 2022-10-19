@@ -7,7 +7,7 @@ import 'dart:io';
 /// Date: 2021/11/29
 class EnvConfig {
   ///开发环境
-  static const String dev = "dev";
+  static const String debug = "debug";
 
   ///测试环境
   static const String test = "test";

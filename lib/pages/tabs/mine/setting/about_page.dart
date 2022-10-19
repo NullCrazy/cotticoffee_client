@@ -91,7 +91,7 @@ class _AboutPageState extends State<AboutPage> {
           onTap: () => NavigatorUtils.push(
             context,
             WebViewRouter.webView,
-            params: {'url': '${Env.envConfig.h5}/#/online/service'},
+            params: {'url': '${Env.currentEnvConfig.h5}/#/online/service'},
           ),
           child: _buildItem('用户使用协议'),
         ),
@@ -104,7 +104,7 @@ class _AboutPageState extends State<AboutPage> {
           onTap: () => NavigatorUtils.push(
             context,
             WebViewRouter.webView,
-            params: {'url': '${Env.envConfig.h5}/#/online/privacy'},
+            params: {'url': '${Env.currentEnvConfig.h5}/#/online/privacy'},
           ),
           child: _buildItem('用户隐私协议'),
         ),

@@ -11,12 +11,12 @@ class Env {
   static const _env = String.fromEnvironment('ENV', defaultValue: EnvConfig.pre);
   static const String keyEnv = "key_env";
 
-  static EnvConfig get envConfig => _getEnvConfig();
+  static EnvConfig get currentEnvConfig => _currentEnvConfig();
 
-  static EnvConfig _getEnvConfig() {
+  static EnvConfig _currentEnvConfig() {
     String cacheEnv = SpUtil.getString(keyEnv);
     String currentEnv = _env;
-    if (cacheEnv.isNotEmpty) {
+    if (currentEnv != EnvConfig.prod && cacheEnv.isNotEmpty) {
       currentEnv = cacheEnv;
     }
     switch (currentEnv) {
@@ -32,7 +32,7 @@ class Env {
   }
 
   static final EnvConfig _devConfig = EnvConfig(
-    envName: EnvConfig.dev,
+    envName: EnvConfig.debug,
     baseUrl: "https://gatewaydev.abite.com",
     pushAppKey: "a9ee95c9bd945500dd72be6a",
     h5: 'https://mdev.cotticoffee.com',

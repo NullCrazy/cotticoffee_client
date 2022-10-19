@@ -59,7 +59,7 @@ class _MinePageState extends State<MinePage> with AutomaticKeepAliveClientMixin 
       const UserInfoWidget(),
       const CouponWidget(),
       const FunctionList(),
-      if (Env.envConfig.envName != EnvConfig.prod) const SwitchEnvWidget(),
+      if (Env.currentEnvConfig.isDebug) const SwitchEnvWidget(),
     ];
   }
 

@@ -38,7 +38,7 @@ class SettingPage extends StatelessWidget {
                 onTap: () => NavigatorUtils.push(
                   context,
                   WebViewRouter.webView,
-                  params: {'url': '${Env.envConfig.h5}/#/price'},
+                  params: {'url': '${Env.currentEnvConfig.h5}/#/price'},
                 ),
                 child: _buildItem("价格说明"),
               );
