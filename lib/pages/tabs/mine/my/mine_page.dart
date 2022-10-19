@@ -1,5 +1,4 @@
 import 'package:cotticoffee_client/config/env.dart';
-import 'package:cotticoffee_client/config/env_config.dart';
 import 'package:cotticoffee_client/pages/tabs/mine/my/bloc/mine_bloc.dart';
 import 'package:cotticoffee_client/pages/tabs/mine/my/bloc/mine_event.dart';
 import 'package:cotticoffee_client/pages/tabs/mine/my/views/switch_env.dart';

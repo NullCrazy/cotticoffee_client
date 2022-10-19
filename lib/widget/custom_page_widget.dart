@@ -23,6 +23,7 @@ class CustomPageWidget extends StatefulWidget {
       this.customErrorWidget,
       this.customLoadingWidget,
       this.darkThem,
+      this.actions,
       this.clickLeading})
       : super(key: key);
 
@@ -38,6 +39,7 @@ class CustomPageWidget extends StatefulWidget {
   Widget? customLoadingWidget;
   Function? clickLeading;
   Color appBarBackgroundColor;
+  List<Widget>? actions;
 
   SystemUiOverlayStyle? darkThem;
 
@@ -75,6 +77,7 @@ class _CustomPageWidgetState extends State<CustomPageWidget> {
       centerTitle: true,
       backgroundColor: widget.appBarBackgroundColor,
       elevation: 0,
+      actions: widget.actions,
       automaticallyImplyLeading: widget.automaticallyImplyLeading,
       leading: widget.automaticallyImplyLeading
           ? UnconstrainedBox(

@@ -1,6 +1,6 @@
 import 'package:cotticoffee_client/generated/json/base/json_convert_content.dart';
-import 'package:cotticoffee_client/pages/tabs/order/model/order_model.dart';
-import 'package:cotticoffee_client/pages/tabs/order/model/order_express.dart';
+import 'package:cotticoffee_client/pages/tabs/order/entity/order_model.dart';
+import 'package:cotticoffee_client/pages/tabs/order/entity/order_express.dart';
 
 
 OrderModels $OrderModelsFromJson(Map<String, dynamic> json) {

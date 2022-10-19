@@ -2,7 +2,7 @@ import 'package:cotticoffee_client/global/style.dart';
 import 'package:cotticoffee_client/pages/tabs/home/home_page.dart';
 import 'package:cotticoffee_client/pages/tabs/menu/ment_page/menu_page.dart';
 import 'package:cotticoffee_client/pages/tabs/mine/my/mine_page.dart';
-import 'package:cotticoffee_client/pages/tabs/order/order_page.dart';
+import 'package:cotticoffee_client/pages/tabs/order/order_list/order_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

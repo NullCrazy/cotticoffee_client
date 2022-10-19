@@ -1,7 +1,8 @@
 import 'package:cotticoffee_client/network/cotti_net_work.dart';
-import 'package:cotticoffee_client/pages/tabs/order/model/order_cancel_reason_model.dart';
-import 'package:cotticoffee_client/pages/tabs/order/model/order_model.dart';
-import 'package:cotticoffee_client/pages/tabs/order/model/order_refund_model.dart';
+import 'package:cotticoffee_client/pages/tabs/order/entity/order_cancel_reason_model.dart';
+import 'package:cotticoffee_client/pages/tabs/order/entity/order_detail_model.dart';
+import 'package:cotticoffee_client/pages/tabs/order/entity/order_model.dart';
+import 'package:cotticoffee_client/pages/tabs/order/entity/order_refund_model.dart';
 
 /// Description:
 /// Author: xingguo.lei@abite.com
@@ -12,6 +13,7 @@ class OrderApi {
   static const _cancelOrder = "/order/cancelOrder";
   static const _orderRefund = "/order/getOrderRefundList";
   static const _getCancelReasonList = "/order/getCancelReasonList";
+  static const _getOrderDetail = "/order/getOrderDetail";
 
   static Future<List<OrderModel>> getOrderList(int status, int page, int pageSize) {
     return CottiNetWork().post(
@@ -59,5 +61,10 @@ class OrderApi {
     }).then((value) {
       return CancelReasonList.fromJson(value).orderCancelReasonModels ?? [];
     });
+  }
+
+  static Future<OrderDetailModel> getOrderDetail(String orderId) {
+    return CottiNetWork().post(_getOrderDetail,
+        data: {'orderId': orderId}).then((value) => OrderDetailModel.fromJson(value));
   }
 }

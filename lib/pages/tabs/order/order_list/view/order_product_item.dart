@@ -1,5 +1,5 @@
 import 'package:cotticoffee_client/global/style.dart';
-import 'package:cotticoffee_client/pages/tabs/order/model/order_model.dart';
+import 'package:cotticoffee_client/pages/tabs/order/entity/order_model.dart';
 import 'package:cotticoffee_client/widget/cotti_image_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

@@ -1,14 +1,13 @@
 import 'package:cotticoffee_client/global/style.dart';
+import 'package:cotticoffee_client/pages/tabs/order/order_list/bloc/order_bloc.dart';
+import 'package:cotticoffee_client/pages/tabs/order/order_list/bloc/order_event.dart';
+import 'package:cotticoffee_client/pages/tabs/order/order_list/bloc/order_state.dart';
+import 'package:cotticoffee_client/pages/tabs/order/order_list/view/page_item.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:cotticoffee_client/pages/tabs/order/bloc/order_state.dart';
 import 'package:cotticoffee_client/widget/custom_page_widget.dart';
 import 'package:cotticoffee_client/widget/my_underline_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
-import 'bloc/order_bloc.dart';
-import 'bloc/order_event.dart';
-import 'view/page_item.dart';
 
 /// Description:
 /// Author: xingguo.lei@abite.com

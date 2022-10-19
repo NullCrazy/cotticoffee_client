@@ -1,5 +1,5 @@
 import 'package:cotticoffee_client/generated/json/base/json_convert_content.dart';
-import 'package:cotticoffee_client/pages/tabs/order/model/order_express.dart';
+import 'package:cotticoffee_client/pages/tabs/order/entity/order_express.dart';
 
 OrderExpress $OrderExpressFromJson(Map<String, dynamic> json) {
 	final OrderExpress orderExpress = OrderExpress();

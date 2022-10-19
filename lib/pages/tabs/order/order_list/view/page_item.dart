@@ -1,9 +1,9 @@
-import 'package:cotticoffee_client/pages/tabs/order/bloc/order_bloc.dart';
-import 'package:cotticoffee_client/pages/tabs/order/bloc/order_event.dart';
-import 'package:cotticoffee_client/pages/tabs/order/bloc/order_state.dart';
-import 'package:cotticoffee_client/pages/tabs/order/model/order_model.dart';
-import 'package:cotticoffee_client/pages/tabs/order/view/order_item.dart';
-import 'package:cotticoffee_client/pages/tabs/order/view/order_notification_listener.dart';
+import 'package:cotticoffee_client/pages/tabs/order/order_list/bloc/order_bloc.dart';
+import 'package:cotticoffee_client/pages/tabs/order/order_list/bloc/order_event.dart';
+import 'package:cotticoffee_client/pages/tabs/order/order_list/bloc/order_state.dart';
+import 'package:cotticoffee_client/pages/tabs/order/entity/order_model.dart';
+import 'package:cotticoffee_client/pages/tabs/order/order_list/view/order_item.dart';
+import 'package:cotticoffee_client/pages/tabs/order/order_list/view/order_notification_listener.dart';
 import 'package:cotticoffee_client/widget/custom_smart_footer.dart';
 import 'package:cotticoffee_client/widget/custom_smart_header.dart';
 import 'package:cotticoffee_client/widget/keep_alive_wrapper.dart';

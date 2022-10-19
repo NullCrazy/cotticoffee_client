@@ -1,6 +1,6 @@
 import 'package:cotticoffee_client/generated/json/base/json_field.dart';
 import 'package:cotticoffee_client/generated/json/order_model.g.dart';
-import 'package:cotticoffee_client/pages/tabs/order/model/order_express.dart';
+import 'package:cotticoffee_client/pages/tabs/order/entity/order_express.dart';
 
 @JsonSerializable()
 class OrderModels {

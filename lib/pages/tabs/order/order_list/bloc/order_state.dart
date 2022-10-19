@@ -1,7 +1,6 @@
+import 'package:cotticoffee_client/pages/tabs/order/entity/order_cancel_reason_model.dart';
+import 'package:cotticoffee_client/pages/tabs/order/entity/order_model.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
-
-import '../model/order_cancel_reason_model.dart';
-import '../model/order_model.dart';
 
 class OrderState {
   final List<Tab> tabs = [

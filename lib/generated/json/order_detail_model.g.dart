@@ -1,6 +1,8 @@
 import 'package:cotticoffee_client/generated/json/base/json_convert_content.dart';
-import 'package:cotticoffee_client/pages/tabs/order/model/order_detail_model.dart';
-import 'package:cotticoffee_client/pages/tabs/order/model/order_express.dart';
+import 'package:cotticoffee_client/pages/tabs/order/entity/order_detail_model.dart';
+import 'package:cotticoffee_client/pages/tabs/order/entity/order_express.dart';
+
+import 'package:cotticoffee_client/pages/tabs/order/entity/order_status_str_entity.dart';
 
 
 OrderDetailModel $OrderDetailModelFromJson(Map<String, dynamic> json) {
@@ -193,6 +195,10 @@ OrderDetailModel $OrderDetailModelFromJson(Map<String, dynamic> json) {
 	if (orderQueryProducts != null) {
 		orderDetailModel.orderQueryProducts = orderQueryProducts;
 	}
+	final OrderStatusStrEntity? orderStatusStr = jsonConvert.convert<OrderStatusStrEntity>(json['orderStatusStrMsg']);
+	if (orderStatusStr != null) {
+		orderDetailModel.orderStatusStr = orderStatusStr;
+	}
 	return orderDetailModel;
 }
 
@@ -245,6 +251,7 @@ Map<String, dynamic> $OrderDetailModelToJson(OrderDetailModel entity) {
 	data['orderExpressDetail'] = entity.orderExpress?.toJson();
 	data['orderCancelDetail'] = entity.orderQueryCancel?.toJson();
 	data['orderProducts'] =  entity.orderQueryProducts?.map((v) => v.toJson()).toList();
+	data['orderStatusStrMsg'] = entity.orderStatusStr?.toJson();
 	return data;
 }
 

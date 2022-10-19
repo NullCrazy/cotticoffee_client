@@ -17,12 +17,13 @@ import 'package:cotticoffee_client/pages/tabs/menu/entity/special_price_activity
 import 'package:cotticoffee_client/pages/tabs/mine/my/entity/coupon_bounty_entity.dart';
 import 'package:cotticoffee_client/pages/tabs/mine/my/entity/user_info_entity.dart';
 import 'package:cotticoffee_client/pages/tabs/mine/setting/entity/shop_license_entity.dart';
-import 'package:cotticoffee_client/pages/tabs/order/model/order_cancel_reason_model.dart';
-import 'package:cotticoffee_client/pages/tabs/order/model/order_detail_model.dart';
-import 'package:cotticoffee_client/pages/tabs/order/model/order_express.dart';
-import 'package:cotticoffee_client/pages/tabs/order/model/order_model.dart';
-import 'package:cotticoffee_client/pages/tabs/order/model/order_refund_model.dart';
-import 'package:cotticoffee_client/pages/tabs/order/model/order_url_model.dart';
+import 'package:cotticoffee_client/pages/tabs/order/entity/order_cancel_reason_model.dart';
+import 'package:cotticoffee_client/pages/tabs/order/entity/order_detail_model.dart';
+import 'package:cotticoffee_client/pages/tabs/order/entity/order_express.dart';
+import 'package:cotticoffee_client/pages/tabs/order/entity/order_model.dart';
+import 'package:cotticoffee_client/pages/tabs/order/entity/order_refund_model.dart';
+import 'package:cotticoffee_client/pages/tabs/order/entity/order_status_str_entity.dart';
+import 'package:cotticoffee_client/pages/tabs/order/entity/order_url_model.dart';
 import 'package:cotticoffee_client/service/pay/model/alipay_info_model_model.dart';
 import 'package:cotticoffee_client/service/pay/model/alipay_info_model_pay_info.dart';
 import 'package:cotticoffee_client/service/pay/model/pay_type_list_model.dart';
@@ -69,6 +70,7 @@ class JsonConvert {
 		(ProductModel).toString(): ProductModel.fromJson,
 		(OrderRefundModel).toString(): OrderRefundModel.fromJson,
 		(OrderRefundProductList).toString(): OrderRefundProductList.fromJson,
+		(OrderStatusStrEntity).toString(): OrderStatusStrEntity.fromJson,
 		(OrderUrlModel).toString(): OrderUrlModel.fromJson,
 		(OrderUrlData).toString(): OrderUrlData.fromJson,
 		(AlipayInfoModelModel).toString(): AlipayInfoModelModel.fromJson,
@@ -259,6 +261,9 @@ class JsonConvert {
 		}
 		if(<OrderRefundProductList>[] is M){
 			return data.map<OrderRefundProductList>((Map<String, dynamic> e) => OrderRefundProductList.fromJson(e)).toList() as M;
+		}
+		if(<OrderStatusStrEntity>[] is M){
+			return data.map<OrderStatusStrEntity>((Map<String, dynamic> e) => OrderStatusStrEntity.fromJson(e)).toList() as M;
 		}
 		if(<OrderUrlModel>[] is M){
 			return data.map<OrderUrlModel>((Map<String, dynamic> e) => OrderUrlModel.fromJson(e)).toList() as M;

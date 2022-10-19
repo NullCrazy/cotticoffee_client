@@ -1,4 +1,4 @@
-import 'package:cotticoffee_client/pages/tabs/order/model/order_cancel_reason_model.dart';
+import 'package:cotticoffee_client/pages/tabs/order/entity/order_cancel_reason_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';

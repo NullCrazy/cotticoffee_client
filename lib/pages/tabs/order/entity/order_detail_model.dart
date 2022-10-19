@@ -1,17 +1,15 @@
-
-
 import 'package:cotticoffee_client/generated/json/base/json_field.dart';
 import 'package:cotticoffee_client/generated/json/order_detail_model.g.dart';
-import 'package:cotticoffee_client/pages/tabs/order/model/order_express.dart';
+import 'package:cotticoffee_client/pages/tabs/order/entity/order_express.dart';
+import 'package:cotticoffee_client/pages/tabs/order/entity/order_status_str_entity.dart';
 
 @JsonSerializable()
 class OrderDetailModel {
+  OrderDetailModel();
 
-	OrderDetailModel();
+  factory OrderDetailModel.fromJson(Map<String, dynamic> json) => $OrderDetailModelFromJson(json);
 
-	factory OrderDetailModel.fromJson(Map<String, dynamic> json) => $OrderDetailModelFromJson(json);
-
-	Map<String, dynamic> toJson() => $OrderDetailModelToJson(this);
+  Map<String, dynamic> toJson() => $OrderDetailModelToJson(this);
 
   ///订单ID
   int? id;
@@ -178,16 +176,17 @@ class OrderDetailModel {
   ///订单中的商品的集合信息
   @JSONField(name: "orderProducts")
   List<OrderQueryProduct>? orderQueryProducts;
+  @JSONField(name: "orderStatusStrMsg")
+  OrderStatusStrEntity? orderStatusStr;
 }
 
 @JsonSerializable()
 class OrderQueryFinance {
+  OrderQueryFinance();
 
-	OrderQueryFinance();
+  factory OrderQueryFinance.fromJson(Map<String, dynamic> json) => $OrderQueryFinanceFromJson(json);
 
-	factory OrderQueryFinance.fromJson(Map<String, dynamic> json) => $OrderQueryFinanceFromJson(json);
-
-	Map<String, dynamic> toJson() => $OrderQueryFinanceToJson(this);
+  Map<String, dynamic> toJson() => $OrderQueryFinanceToJson(this);
 
   double? totalProductMoney;
 
@@ -238,12 +237,11 @@ class OrderQueryFinance {
 
 @JsonSerializable()
 class OrderQueryExtend {
+  OrderQueryExtend();
 
-	OrderQueryExtend();
+  factory OrderQueryExtend.fromJson(Map<String, dynamic> json) => $OrderQueryExtendFromJson(json);
 
-	factory OrderQueryExtend.fromJson(Map<String, dynamic> json) => $OrderQueryExtendFromJson(json);
-
-	Map<String, dynamic> toJson() => $OrderQueryExtendToJson(this);
+  Map<String, dynamic> toJson() => $OrderQueryExtendToJson(this);
 
   ///门店ID
   int? shopId;
@@ -302,12 +300,11 @@ class OrderQueryExtend {
 
 @JsonSerializable()
 class OrderQueryPay {
+  OrderQueryPay();
 
-	OrderQueryPay();
+  factory OrderQueryPay.fromJson(Map<String, dynamic> json) => $OrderQueryPayFromJson(json);
 
-	factory OrderQueryPay.fromJson(Map<String, dynamic> json) => $OrderQueryPayFromJson(json);
-
-	Map<String, dynamic> toJson() => $OrderQueryPayToJson(this);
+  Map<String, dynamic> toJson() => $OrderQueryPayToJson(this);
 
   ///订单支付状态
   int? status;
@@ -330,12 +327,11 @@ class OrderQueryPay {
 
 @JsonSerializable()
 class OrderQueryCancel {
+  OrderQueryCancel();
 
-	OrderQueryCancel();
+  factory OrderQueryCancel.fromJson(Map<String, dynamic> json) => $OrderQueryCancelFromJson(json);
 
-	factory OrderQueryCancel.fromJson(Map<String, dynamic> json) => $OrderQueryCancelFromJson(json);
-
-	Map<String, dynamic> toJson() => $OrderQueryCancelToJson(this);
+  Map<String, dynamic> toJson() => $OrderQueryCancelToJson(this);
 
   ///取消类型 用户/咖啡师/配送员/系统,参见枚举',
   int? cancelUserType;
@@ -349,12 +345,11 @@ class OrderQueryCancel {
 
 @JsonSerializable()
 class OrderQueryProduct {
+  OrderQueryProduct();
 
-	OrderQueryProduct();
+  factory OrderQueryProduct.fromJson(Map<String, dynamic> json) => $OrderQueryProductFromJson(json);
 
-	factory OrderQueryProduct.fromJson(Map<String, dynamic> json) => $OrderQueryProductFromJson(json);
-
-	Map<String, dynamic> toJson() => $OrderQueryProductToJson(this);
+  Map<String, dynamic> toJson() => $OrderQueryProductToJson(this);
 
   String? productImgUrl;
 

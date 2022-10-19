@@ -1,5 +1,5 @@
 import 'package:cotticoffee_client/generated/json/base/json_convert_content.dart';
-import 'package:cotticoffee_client/pages/tabs/order/model/order_url_model.dart';
+import 'package:cotticoffee_client/pages/tabs/order/entity/order_url_model.dart';
 
 OrderUrlModel $OrderUrlModelFromJson(Map<String, dynamic> json) {
 	final OrderUrlModel orderUrlModel = OrderUrlModel();

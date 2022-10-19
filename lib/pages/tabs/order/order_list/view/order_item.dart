@@ -1,11 +1,11 @@
 import 'dart:io';
-import 'package:cotticoffee_client/pages/tabs/order/bloc/order_bloc.dart';
-import 'package:cotticoffee_client/pages/tabs/order/bloc/order_event.dart';
-import 'package:cotticoffee_client/pages/tabs/order/bloc/order_state.dart';
-import 'package:cotticoffee_client/pages/tabs/order/model/order_cancel_reason_model.dart';
-import 'package:cotticoffee_client/pages/tabs/order/model/order_model.dart';
-import 'package:cotticoffee_client/pages/tabs/order/view/cancel_order_dialog.dart';
-import 'package:cotticoffee_client/pages/tabs/order/view/to_pay_dialog.dart';
+import 'package:cotticoffee_client/pages/tabs/order/order_list/bloc/order_bloc.dart';
+import 'package:cotticoffee_client/pages/tabs/order/order_list/bloc/order_event.dart';
+import 'package:cotticoffee_client/pages/tabs/order/order_list/bloc/order_state.dart';
+import 'package:cotticoffee_client/pages/tabs/order/entity/order_cancel_reason_model.dart';
+import 'package:cotticoffee_client/pages/tabs/order/entity/order_model.dart';
+import 'package:cotticoffee_client/pages/tabs/order/order_list/view/cancel_order_dialog.dart';
+import 'package:cotticoffee_client/pages/tabs/order/order_list/view/to_pay_dialog.dart';
 import 'package:cotticoffee_client/routers/order_router.dart';
 import 'package:cotticoffee_client/utils/abite_pay_util.dart';
 import 'package:cotticoffee_client/widget/countdown_timer.dart';
@@ -53,7 +53,7 @@ class _OrderItemState extends State<OrderItem> {
         NavigatorUtils.push(
           context,
           OrderRouter.orderDetailPage,
-          params: {"orderId": widget.orderModel.id, "orderTitle": widget.orderModel.statusStr},
+          params: {"orderNo": widget.orderModel.orderNo},
         ).then((value) {
           if (value != null && value) {
             context.read<OrderBloc>().add(OnRefreshEvent(0));

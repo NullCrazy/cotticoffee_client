@@ -1,3 +1,4 @@
+import 'package:cotticoffee_client/pages/tabs/order/order_detail/order_detail_page.dart';
 import 'package:cotticommon/cotticommon.dart';
 import 'package:fluro/fluro.dart';
 import 'package:flutter/cupertino.dart';
@@ -13,7 +14,10 @@ class OrderRouter extends ModuleRouteManager {
         RouteEntry(
           orderDetailPage,
           handler: Handler(handlerFunc: (context, params) {
-            return Container();
+            final String orderNo = params['orderNo']?.first ?? '';
+            return OrderDetailPage(
+              orderNo: orderNo,
+            );
           }),
         ),
       ];
