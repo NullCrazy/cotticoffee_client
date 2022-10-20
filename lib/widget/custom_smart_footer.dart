@@ -26,7 +26,7 @@ class CustomSmartFooter extends StatelessWidget {
         body = const Text("加载错误");
       } else if (mode == LoadStatus.noMore) {
         body = Text(
-          "— 到底啦 —",
+          "— 美味无上限，页面有底线哦 —",
           style: TextStyle(color: const Color(0xFFCFCFCf), fontSize: 13.sp),
         );
       } else {

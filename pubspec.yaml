@@ -17,6 +17,7 @@ dependencies:
   flutter_svg: ^0.23.0+1
   #下拉刷新
   pull_to_refresh: ^2.0.0
+  url_launcher: ^6.0.17
   #lottie动画
   lottie: ^1.2.1
   #图片缓存
@@ -53,6 +54,7 @@ flutter:
     - assets/images/
     - assets/images/mine/
     - assets/images/tab_bar/
+    - assets/images/order/order_detail/
   fonts:
     - family: IconFont
       fonts:

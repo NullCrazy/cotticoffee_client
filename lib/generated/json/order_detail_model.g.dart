@@ -403,6 +403,10 @@ OrderQueryExtend $OrderQueryExtendFromJson(Map<String, dynamic> json) {
 	if (takeAddress != null) {
 		orderQueryExtend.takeAddress = takeAddress;
 	}
+	final int? takeHumSex = jsonConvert.convert<int>(json['takeHumSex']);
+	if (takeHumSex != null) {
+		orderQueryExtend.takeHumSex = takeHumSex;
+	}
 	final String? takeHumPhone = jsonConvert.convert<String>(json['takeHumPhone']);
 	if (takeHumPhone != null) {
 		orderQueryExtend.takeHumPhone = takeHumPhone;
@@ -438,6 +442,7 @@ Map<String, dynamic> $OrderQueryExtendToJson(OrderQueryExtend entity) {
 	data['shopMdCode'] = entity.shopMdCode;
 	data['memberNo'] = entity.memberNo;
 	data['takeAddress'] = entity.takeAddress;
+	data['takeHumSex'] = entity.takeHumSex;
 	data['takeHumPhone'] = entity.takeHumPhone;
 	data['takeHumName'] = entity.takeHumName;
 	data['logisticsDynamics'] = entity.logisticsDynamics;

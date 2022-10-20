@@ -285,6 +285,8 @@ class OrderQueryExtend {
   ///收货人地址
   String? takeAddress;
 
+  int? takeHumSex;
+
   ///收货人手机号
   String? takeHumPhone;
 

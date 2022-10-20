@@ -29,7 +29,7 @@ class _BottomActionBarState extends State<BottomActionBar> {
             boxShadow: [
               BoxShadow(
                 color: const Color.fromARGB(10, 58, 59, 60),
-                offset: Offset(0, -2.w), //阴影x轴偏移量
+                offset: Offset(0, -2.w),
                 blurRadius: 1,
                 spreadRadius: 0,
               )
@@ -76,7 +76,7 @@ class _BottomActionBarState extends State<BottomActionBar> {
         margin: EdgeInsets.only(right: 14.w),
         decoration: BoxDecoration(
           color: lastChild ? primeColor : Colors.white,
-          border: Border.all(width: lastChild ? 0 : 1.w, color: primeColor),
+          border: Border.all(width: lastChild ? 0 : 0.5.w, color: primeColor),
         ),
         alignment: Alignment.center,
         child: Text(

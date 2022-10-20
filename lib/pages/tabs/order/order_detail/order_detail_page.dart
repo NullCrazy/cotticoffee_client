@@ -1,9 +1,13 @@
 import 'package:cotticoffee_client/global/icon_font.dart';
 import 'package:cotticoffee_client/global/style.dart';
+import 'package:cotticoffee_client/pages/tabs/order/entity/order_detail_model.dart';
 import 'package:cotticoffee_client/pages/tabs/order/order_detail/bloc/order_detail_bloc.dart';
 import 'package:cotticoffee_client/pages/tabs/order/order_detail/bloc/order_detail_event.dart';
 import 'package:cotticoffee_client/pages/tabs/order/order_detail/bloc/order_detail_state.dart';
 import 'package:cotticoffee_client/pages/tabs/order/order_detail/views/bottom_action_bar.dart';
+import 'package:cotticoffee_client/pages/tabs/order/order_detail/views/delivery_info.dart';
+import 'package:cotticoffee_client/pages/tabs/order/order_detail/views/other_widget.dart';
+import 'package:cotticoffee_client/pages/tabs/order/order_detail/views/simple_item.dart';
 import 'package:cotticoffee_client/widget/custom_page_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -30,6 +34,17 @@ class _OrderDetailPageState extends State<OrderDetailPage> {
     _bloc.add(OrderInfoEvent(widget.orderNo));
   }
 
+  Widget _rightAction() {
+    return Container(
+      margin: EdgeInsets.only(right: 16.w),
+      child: Icon(
+        IconFont.icon_help_color,
+        size: 20.w,
+        color: textBlack,
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
@@ -41,12 +56,17 @@ class _OrderDetailPageState extends State<OrderDetailPage> {
   Widget _buildContent() {
     return BlocBuilder<OrderDetailBloc, OrderDetailState>(
       builder: (context, state) {
+        List<Widget> listView = _listView(state.orderDetail);
         return CustomPageWidget(
           title: state.orderDetail?.orderStatusStr?.statusStr ?? '',
           actions: [_rightAction()],
           child: Stack(
-            children: const [
-              Align(
+            children: [
+              ListView(
+                padding: EdgeInsets.only(bottom: 68.h),
+                children: listView,
+              ),
+              const Align(
                 alignment: Alignment.bottomLeft,
                 child: BottomActionBar(),
               ),
@@ -57,15 +77,22 @@ class _OrderDetailPageState extends State<OrderDetailPage> {
     );
   }
 
-  Widget _rightAction() {
-    return Container(
-      margin: EdgeInsets.only(right: 16.w),
-      child: Icon(
-        IconFont.icon_help_color,
-        size: 20.w,
-        color: textBlack,
-      ),
-    );
+  List<Widget> _listView(OrderDetailModel? orderDetail) {
+    List<Widget> list = [];
+    if (orderDetail == null) {
+      return list;
+    }
+    if (_bloc.state.isTakeOut) {
+      list.add(const DeliveryInfo());
+    }
+    if (orderDetail.isEvaluate == 1) {
+      list.add(SimpleItem(title: '查看评价', click: () {}));
+    }
+    if (orderDetail.refundStatus == 3 || orderDetail.refundStatus == 2) {
+      list.add(SimpleItem(title: '退款记录', click: () {}));
+    }
+    list.add(const OtherWidget());
+    return list;
   }
 
   @override
