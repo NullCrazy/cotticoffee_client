@@ -11,8 +11,7 @@ class LoginHeaderInterceptor extends Interceptor {
   @override
   void onRequest(RequestOptions options, RequestInterceptorHandler handler) {
     // String token = GlobalBlocs.get<UserBloc>(UserBloc.blocName).token;
-    String token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9'
-        '.eyJzdWIiOiJ7XCJpc05ld01lbWJlclwiOmZhbHNlLFwibWVtYmVySWRcIjo0Mjk0OTczMjYzNSxcIm1lbWJlck5vXCI6XCI0Mjk0OTczMjYzNVwiLFwibWVtYmVyVHlwZVwiOjAsXCJtb2JpbGVcIjpcIjE3MzM4MTM0NzU3XCIsXCJvcGVuSWRcIjpcIm9ROVpWNUJ0TXpwOHZ5V0JfRmY1SWh4MnA5RTBcIixcInVuaW9uSWRcIjpcIm8yU19MNTU3MXdYdDlmWEJZWWs5X3lrazE4dGtcIn0iLCJpc3MiOiJpc3N1ZSIsImV4cCI6Njg1MDE5MDYwNiwiaWF0IjoxNjY2MTkwNjA2fQ.rJ2PTB7dYDUHZCAuHPeC_ymmF7gFrGY86gsWrHfaKts ';
+    String token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ7XCJpc05ld01lbWJlclwiOmZhbHNlLFwibWVtYmVySWRcIjo0NzI0NjMwNDMwMCxcIm1lbWJlck5vXCI6XCI0NzI0NjMwNDMwMFwiLFwibWVtYmVyVHlwZVwiOjQsXCJtb2JpbGVcIjpcIjE3MzM4MTM0NzU3XCIsXCJvcGVuSWRcIjpcIm9ROVpWNUJ0TXpwOHZ5V0JfRmY1SWh4MnA5RTBcIixcInVuaW9uSWRcIjpcIm8yU19MNTU3MXdYdDlmWEJZWWs5X3lrazE4dGtcIn0iLCJpc3MiOiJpc3N1ZSIsImV4cCI6Njg1MDI5NTM2OSwiaWF0IjoxNjY2Mjk1MzY5fQ.G5K-3Rlc2bPeHt2i1K6RPCNEn2RQaiLbJWd09nM6AUA';
     if (token.isNotEmpty) {
       options.headers.addAll({"token": token});
     }

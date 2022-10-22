@@ -1,5 +1,3 @@
-import 'dart:io';
-
 /// FileName: env_config
 ///
 /// Description:
@@ -31,36 +29,18 @@ class EnvConfig {
   final String? wxAppID;
   final String? wxAppSecret;
   final String? h5;
+  final String ak;
+  final String sk;
 
   EnvConfig({
     required this.baseUrl,
     required this.envName,
     required this.h5,
+    required this.ak,
+    required this.sk,
     this.isDebug = true,
     this.wxAppID = "wx9f05573841063112",
     this.wxAppSecret = "6626699a7c2c0f9ceacc8d9e91c42249",
     this.pushAppKey = "9ed8c1a86c5195c816dfa362",
   });
-
-  String get ak {
-    if (envName == prod || envName == pre) {
-      return Platform.isAndroid
-          ? "Prq5qwZBTI4SBxvWvso5srnA7ptHnKZd"
-          : "363fd453ec682fa6fbc4292289ebbe72";
-    }
-    return Platform.isAndroid
-        ? "Ku0ShaW2X5uz3xXABvdGfdzx68cwfqJk"
-        : "363fd453ec682fa6fbc4292289ebbe72";
-  }
-
-  String get sk {
-    if (envName == prod || envName == pre) {
-      return Platform.isAndroid
-          ? "weWTyNcky0adUITdcharyB5LXjVNQnrB"
-          : "363fd453ec682fa6fbc4292289ebbe72";
-    }
-    return Platform.isAndroid
-        ? "n8oErZzHIPpM5ZcB4dLNifA50orTKU6a"
-        : "41c9ad3d5ff17384e0c27f876602484a";
-  }
 }
